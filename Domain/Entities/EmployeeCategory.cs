@@ -1,0 +1,14 @@
+﻿using Domain.Abstractions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain.Entities
+{
+    public class EmployeeCategory : NameLocalizableEntity
+    {
+        public ICollection<SubEmployeeCategory> SubEmployeeCategories { get; set; } = [];
+    }
+}

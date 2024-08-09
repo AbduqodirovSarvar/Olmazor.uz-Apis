@@ -1,5 +1,6 @@
 ﻿using Application.Abstractions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,21 @@ namespace Application.Services
     {
         private readonly string _filesDirectory;
 
-        public FileService()
+        public FileService(IHostEnvironment env)
         {
-            // Define the base directory for storing files
-            _filesDirectory = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-                                                ? Path.Combine(Directory.GetCurrentDirectory(), "..", "OlmaTech.Application", "Files")
-                                                : Path.Combine("/app/Files");
+            if (env.IsProduction())
+            {
+                _filesDirectory = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+                                    ? Path.Combine(Directory.GetCurrentDirectory(), "..", "Files")
+                                    : Path.Combine("/app/Files");
+            }
+            else
+            {
+                _filesDirectory = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+                                    ? Path.Combine(Directory.GetCurrentDirectory(), "..", "OlmaTech.Application", "Files")
+                                    : Path.Combine("/app/Files");
+            }
 
-            // Ensure the directory exists
             Directory.CreateDirectory(_filesDirectory);
         }
 
@@ -36,7 +44,6 @@ namespace Application.Services
                 string filePath = Path.Combine(_filesDirectory, fileName);
                 string fullPath = Path.GetFullPath(filePath);
 
-                // Check if the file exists before attempting to delete
                 if (File.Exists(fullPath))
                 {
                     File.Delete(fullPath);
@@ -86,7 +93,6 @@ namespace Application.Services
             }
             catch (Exception ex)
             {
-                // Handle exceptions as needed (e.g., log or throw)
                 Console.WriteLine($"Error retrieving file: {ex.Message}");
                 throw;
             }

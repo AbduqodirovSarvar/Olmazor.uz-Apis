@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Abstractions;
+using Infrastructure.Persistance.EntityFramework;
+using Infrastructure.Services;
 
 namespace Infrastructure.Extentions
 {
@@ -13,6 +16,9 @@ namespace Infrastructure.Extentions
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<IAppDbContext, AppDbContext>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IHashService, HashService>();
             services.AddApplication();
             return services;
         }

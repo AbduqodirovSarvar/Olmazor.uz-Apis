@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.Common.Queries
+namespace Application.UseCases.CommonToDoList.Queries
 {
     public class GetCommonDataQueryHandler(
         IAppDbContext appDbContext

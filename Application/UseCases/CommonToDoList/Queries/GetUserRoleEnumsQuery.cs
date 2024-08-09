@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.Common.Queries
+namespace Application.UseCases.CommonToDoList.Queries
 {
-    public class GetCommonDataQuery : IRequest<CommonViewModel>
+    public class GetUserRoleEnumsQuery : IRequest<List<EnumViewModel>>
     {
-        public GetCommonDataQuery() { }
+        public GetUserRoleEnumsQuery() { }
     }
 }

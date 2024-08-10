@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.UserToDoList.Queries
+namespace Application.UseCases.AboutToDoList.Queries
 {
-    public class GetUserByIdQuery : IRequest<UserViewModel>
+    public class GetAboutQuery : IRequest<AboutViewModel>
     {
         [Required]
         public Guid Id { get; set; }

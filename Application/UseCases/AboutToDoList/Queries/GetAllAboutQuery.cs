@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.UserToDoList.Queries
+namespace Application.UseCases.AboutToDoList.Queries
 {
-    public class GetAllUsersQuery : IRequest<List<UserViewModel>>
+    public class GetAllAboutQuery : IRequest<List<AboutViewModel>>
     {
-        public GetAllUsersQuery() { }
+        public GetAllAboutQuery() { }
     }
 }

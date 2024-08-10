@@ -1,4 +1,6 @@
 ﻿using Application.Models.ViewModels;
+using Application.UseCases.AboutToDoList.Commands;
+using Application.UseCases.ContactToDoList.Commands;
 using Application.UseCases.UserToDoList.Commands;
 using AutoMapper;
 using Domain.Entities;
@@ -22,6 +24,9 @@ namespace Application.Services
                 .ForMember(x => x.Photo, y => y.Ignore())
                 .ForMember(x => x.PasswordHash, y => y.Ignore());
 
+            CreateMap<CreateAboutCommand, About>().ReverseMap();
+            CreateMap<About, AboutViewModel>().ReverseMap();
+            CreateMap<CreateContactCommand, Contact>().ReverseMap();
         }
     }
 }

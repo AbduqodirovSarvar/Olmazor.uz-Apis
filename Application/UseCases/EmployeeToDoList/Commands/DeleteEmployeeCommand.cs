@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.ContactToDoList.Commands
+namespace Application.UseCases.EmployeeToDoList.Commands
 {
-    public class DeleteContactCommand : IRequest<bool>
+    public class DeleteEmployeeCommand : IRequest<bool>
     {
         [Required]
         public Guid Id { get; set; }

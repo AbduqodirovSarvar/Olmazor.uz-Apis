@@ -20,8 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCases\EmployeeToDoList\" />
-    <Folder Include="UseCases\EmployeeCategoryToDoList\" />
+    <Folder Include="UseCases\LocationToDoList\Commands\" />
+    <Folder Include="UseCases\LocationToDoList\Queries\" />
+    <Folder Include="UseCases\PostCategoryToDoList\Commands\" />
+    <Folder Include="UseCases\PostCategoryToDoList\Queries\" />
+    <Folder Include="UseCases\PostToDoList\Commands\" />
+    <Folder Include="UseCases\PostToDoList\Queries\" />
+    <Folder Include="UseCases\SectorToDoList\Commands\" />
+    <Folder Include="UseCases\SectorToDoList\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.ContactToDoList.Commands
+namespace Application.UseCases.JobFairToDoList.Commands
 {
-    public class DeleteContactCommand : IRequest<bool>
+    public class DeleteJobFairCommand : IRequest<bool>
     {
         [Required]
         public Guid Id { get; set; }

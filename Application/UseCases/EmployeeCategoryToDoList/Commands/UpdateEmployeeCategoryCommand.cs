@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.UseCases.ContactToDoList.Commands
+namespace Application.UseCases.EmployeeCategoryToDoList.Commands
 {
-    public class UpdateContactCommand : IRequest<Contact>
+    public class UpdateEmployeeCategoryCommand : IRequest<EmployeeCategory>
     {
         [Required]
         public Guid Id { get; set; }
@@ -17,6 +17,5 @@ namespace Application.UseCases.ContactToDoList.Commands
         public string? NameEn { get; set; } = null;
         public string? NameRu { get; set; } = null;
         public string? NameUzRu { get; set; } = null;
-        public string? Value { get; set; } = null;
     }
 }

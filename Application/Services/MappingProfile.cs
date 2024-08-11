@@ -4,6 +4,10 @@ using Application.UseCases.ContactToDoList.Commands;
 using Application.UseCases.EmployeeCategoryToDoList.Commands;
 using Application.UseCases.EmployeeToDoList.Commands;
 using Application.UseCases.JobFairToDoList.Commands;
+using Application.UseCases.LocationToDoList.Commands;
+using Application.UseCases.PostCategoryToDoList.Commands;
+using Application.UseCases.PostToDoList.Commands;
+using Application.UseCases.SectorToDoList.Commands;
 using Application.UseCases.UserToDoList.Commands;
 using AutoMapper;
 using Domain.Entities;
@@ -36,6 +40,14 @@ namespace Application.Services
             CreateMap<Employee, EmployeeViewModel>().ReverseMap();
 
             CreateMap<CreateJobFairCommand, JobFair>().ReverseMap();
+
+            CreateMap<CreateLocationCommand, Location>().ReverseMap();
+
+            CreateMap<CreatePostCategoryCommand, PostCategory>().ReverseMap();
+
+            CreateMap<CreatePostCommand, Post>().ReverseMap();
+
+            CreateMap<CreateSectorCommand, Sector>().ReverseMap();
         }
     }
 }

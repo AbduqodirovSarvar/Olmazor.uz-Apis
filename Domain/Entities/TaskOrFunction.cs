@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class TasksAndFunctions : FullLocalizableEntity
+    public class TaskOrFunction : FullLocalizableEntity
     {
     }
 }

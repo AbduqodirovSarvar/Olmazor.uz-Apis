@@ -9,7 +9,7 @@ namespace Domain.Entities
 {
     public class SubEmployeeCategory : NameLocalizableEntity
     {
-        public Guid CategoryId { get; set; }
+        public Guid EmployeeCategoryId { get; set; }
         public EmployeeCategory? EmployeeCategory { get; set; }
         public ICollection<Employee> Employees { get; set; } = [];
     }

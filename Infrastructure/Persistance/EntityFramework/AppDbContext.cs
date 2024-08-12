@@ -31,7 +31,7 @@ namespace Infrastructure.Persistance.EntityFramework
         public DbSet<PostCategory> PostCategories { get; set; }
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<Slide> Slides { get; set; }
-        public DbSet<TasksAndFunctions> TasksAndFunctions { get; set; }
+        public DbSet<TaskOrFunction> TasksAndFunctions { get; set; }
         public DbSet<UsefulLink> UsefulLinks { get; set; }
 
 

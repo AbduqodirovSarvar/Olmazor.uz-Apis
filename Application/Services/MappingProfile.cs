@@ -8,6 +8,10 @@ using Application.UseCases.LocationToDoList.Commands;
 using Application.UseCases.PostCategoryToDoList.Commands;
 using Application.UseCases.PostToDoList.Commands;
 using Application.UseCases.SectorToDoList.Commands;
+using Application.UseCases.SlideToDoList.Commands;
+using Application.UseCases.SubEmployeeCategoryToDoList.Commands;
+using Application.UseCases.TasksAndFunctionsToDoList.Commands;
+using Application.UseCases.UsefullLinkToDoList.Commands;
 using Application.UseCases.UserToDoList.Commands;
 using AutoMapper;
 using Domain.Entities;
@@ -45,9 +49,20 @@ namespace Application.Services
 
             CreateMap<CreatePostCategoryCommand, PostCategory>().ReverseMap();
 
-            CreateMap<CreatePostCommand, Post>().ReverseMap();
+            CreateMap<CreatePostCommand, Post>()
+                .ForMember(x => x.Photo, y => y.Ignore());
 
             CreateMap<CreateSectorCommand, Sector>().ReverseMap();
+
+            CreateMap<CreateSlideCommand, Slide>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+
+            CreateMap<CreateSubEmployeeCategoryCommand, SubEmployeeCategory>().ReverseMap();
+
+            CreateMap<CreateTasksAndFunctionsCommand, TaskOrFunction>().ReverseMap();
+
+            CreateMap<CreateUsefullLinkCommand, UsefulLink>()
+                .ForMember(x => x.Photo, y => y.Ignore());
         }
     }
 }

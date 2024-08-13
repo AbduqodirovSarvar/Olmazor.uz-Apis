@@ -22,6 +22,8 @@ namespace Application.UseCases.SectorToDoList.Commands
         {
             var sector = _mapper.Map<Sector>(request);
             await _appDbContext.Sectors.AddAsync(sector, cancellationToken);
+            await _appDbContext.SaveChangesAsync(cancellationToken);
+
             return sector;
         }
     }

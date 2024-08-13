@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.PostCategoryToDoList.Commands
 {
-    public class CreatePostcategoryCommandHandler(
+    public class CreatePostCategoryCommandHandler(
         IAppDbContext appDbContext,
         IMapper mapper
         ) : IRequestHandler<CreatePostCategoryCommand, PostCategory>

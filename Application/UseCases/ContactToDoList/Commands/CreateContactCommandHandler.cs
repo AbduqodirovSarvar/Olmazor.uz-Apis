@@ -23,6 +23,7 @@ namespace Application.UseCases.ContactToDoList.Commands
             var contact = _mapper.Map<Contact>(request);
 
             await _appDbContext.Contacts.AddAsync(contact, cancellationToken);
+            await _appDbContext.SaveChangesAsync(cancellationToken);
             return contact;
         }
     }

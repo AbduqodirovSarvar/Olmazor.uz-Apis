@@ -21,6 +21,8 @@ namespace Application.UseCases.SubEmployeeCategoryToDoList.Commands
         public async Task<SubEmployeeCategory> Handle(CreateSubEmployeeCategoryCommand request, CancellationToken cancellationToken)
         {
             var subEmployeeCategory = _mapper.Map<SubEmployeeCategory>(request);
+
+            await _appDbContext.SubEmployeeCategories.AddAsync(subEmployeeCategory, cancellationToken);
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return subEmployeeCategory;
         }

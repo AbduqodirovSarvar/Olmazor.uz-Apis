@@ -40,6 +40,7 @@ namespace Application.Services
                 .ForMember(dest => dest.ReceptionDays,
                             opt => opt.MapFrom(src => src.ReceptionDays.Select(e => new EnumViewModel { Id = (int)e, Name = e.ToString() }).ToList()));
 
+            CreateMap<User, UserViewModel>().ReverseMap();
             CreateMap<CreateContactCommand, Contact>().ReverseMap();
             CreateMap<CreateEmployeeCategoryCommand, EmployeeCategory>().ReverseMap();
             CreateMap<CreateEmployeeCommand, Employee>()

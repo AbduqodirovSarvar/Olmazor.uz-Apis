@@ -48,8 +48,6 @@ namespace Infrastructure.Extentions
                     .EnableSensitiveDataLogging();
             });
 
-            /*services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));*/
-
             using var serviceProvider = services.BuildServiceProvider();
             var hashService = serviceProvider.GetRequiredService<IHashService>();
             DefaultUserData.Initialize(hashService);

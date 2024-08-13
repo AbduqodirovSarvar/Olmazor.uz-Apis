@@ -1,6 +1,7 @@
 ﻿using Application.UseCases.AboutToDoList.Commands;
 using Application.UseCases.AboutToDoList.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(policy: "AdminActions")]
     public class AboutController(
         IMediator mediator
         ) : ControllerBase
@@ -32,7 +34,6 @@ namespace WebApi.Controllers
         {
             try
             {
-                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 return Ok(await _mediator.Send(query));
             }
             catch (Exception ex)

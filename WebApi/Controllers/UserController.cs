@@ -3,6 +3,7 @@ using Application.UseCases.AboutToDoList.Queries;
 using Application.UseCases.UserToDoList.Commands;
 using Application.UseCases.UserToDoList.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController(
         IMediator mediator
         ) : ControllerBase
@@ -42,6 +44,7 @@ namespace WebApi.Controllers
             }
         }
 
+        [Authorize(policy: "AdminActions")]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateUserCommand command)
         {

@@ -1,4 +1,5 @@
 ﻿using Domain.Enums;
+using Infrastructure.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ namespace WebApi.Extensions
             builder.Services.AddApi(builder.Configuration);
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
             builder.Services.Configure<FormOptions>(options =>
             {
                 options.MultipartBodyLengthLimit = 104857600;

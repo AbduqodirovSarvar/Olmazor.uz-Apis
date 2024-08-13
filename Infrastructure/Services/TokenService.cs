@@ -14,7 +14,7 @@ namespace Infrastructure.Services
 {
     public class TokenService(IOptions<JwtOptions> config) : ITokenService
     {
-        private readonly JwtOptions _configuration = config.Value;
+        private readonly JwtOptions _configuration = config.Value ?? throw new ArgumentNullException(nameof(config), "JwtOptions cannot be null.");
 
         public string GetAccessToken(Claim[] claims)
         {

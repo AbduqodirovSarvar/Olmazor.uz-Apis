@@ -1,5 +1,6 @@
 ﻿using Application.UseCases.CommonToDoList.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace WebApi.Controllers
     {
         private readonly IMediator _mediator = mediator;
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetCommonData()
         {
@@ -24,6 +26,7 @@ namespace WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("enum/all")]
         public async Task<IActionResult> GetEnums()
         {
@@ -38,6 +41,7 @@ namespace WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("enum/genders")]
         public async Task<IActionResult> GetGenderEnums()
         {
@@ -52,6 +56,7 @@ namespace WebApi.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("enum/user-roles")]
         public async Task<IActionResult> GetUserRoleEnums()
         {

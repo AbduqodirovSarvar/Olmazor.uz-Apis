@@ -3,6 +3,7 @@ using Application.UseCases.AboutToDoList.Queries;
 using Application.UseCases.JobFairToDoList.Commands;
 using Application.UseCases.JobFairToDoList.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(policy: "AdminActions")]
     public class JobFairController(
         IMediator mediator
         ) : ControllerBase

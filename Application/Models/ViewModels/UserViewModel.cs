@@ -15,12 +15,12 @@ namespace Application.Models.ViewModels
         public string? FirstnameRu { get; set; }
         public string? LastnameEn { get; set; }
         public string? LastnameRu { get; set; }
-        public Gender Gender { get; set; }
+        public EnumViewModel? Gender { get; set; }
         public string? Phone1 { get; set; }
         public string? Phone2 { get; set; }
         public string? Email { get; set; }
         public string? Photo { get; set; }
-        public UserRole Userrole { get; set; }
+        public EnumViewModel? Userrole { get; set; }
         public Guid CreatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid UpdatedBy { get; set; }

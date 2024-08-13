@@ -3,6 +3,7 @@ using Application.UseCases.AboutToDoList.Queries;
 using Application.UseCases.SlideToDoList.Commands;
 using Application.UseCases.SlideToDoList.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(policy: "AdminActions")]
     public class SlideController(
         IMediator mediator
         ) : ControllerBase

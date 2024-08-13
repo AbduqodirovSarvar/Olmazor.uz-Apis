@@ -43,7 +43,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreatePostCommand command)
+        public async Task<IActionResult> Create([FromForm] CreatePostCommand command)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdatePostCommand command)
+        public async Task<IActionResult> Update([FromForm] UpdatePostCommand command)
         {
             try
             {

@@ -43,7 +43,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateUsefullLinkCommand command)
+        public async Task<IActionResult> Create([FromForm] CreateUsefullLinkCommand command)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateUsefullLinkCommand command)
+        public async Task<IActionResult> Update([FromForm] UpdateUsefullLinkCommand command)
         {
             try
             {

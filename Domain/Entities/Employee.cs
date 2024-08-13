@@ -18,7 +18,7 @@ namespace Domain.Entities
         public string Position { get; set; } = string.Empty;
         public DateOnly WorkFromDate { get; set; }
         public string WorkPlace { get; set; } = string.Empty;
-        public ICollection<WeekDays> ReceptionDays { get; set; } = [];
+        public List<WeekDays> ReceptionDays { get; set; } = [];
         public string ReceptionTime { get; set; } = string.Empty;
     }
 }

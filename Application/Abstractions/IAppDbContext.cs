@@ -23,7 +23,7 @@ namespace Application.Abstractions
         DbSet<Sector> Sectors { get; set; }
         DbSet<Slide> Slides { get; set; }
         DbSet<TaskOrFunction> TasksAndFunctions { get; set; }
-        DbSet<UsefulLink> UsefulLinks { get; set; }
+        DbSet<UsefullLink> UsefulLinks { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

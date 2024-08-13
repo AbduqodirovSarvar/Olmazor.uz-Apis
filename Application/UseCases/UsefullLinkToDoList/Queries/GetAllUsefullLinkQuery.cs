@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.UsefullLinkToDoList.Queries
 {
-    public class GetAllUsefullLinkQuery : IRequest<List<UsefulLink>>
+    public class GetAllUsefullLinkQuery : IRequest<List<UsefullLink>>
     {
         public GetAllUsefullLinkQuery() { }
     }

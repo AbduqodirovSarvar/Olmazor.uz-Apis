@@ -32,6 +32,7 @@ namespace WebApi.Controllers
         {
             try
             {
+                Console.WriteLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 return Ok(await _mediator.Send(query));
             }
             catch (Exception ex)

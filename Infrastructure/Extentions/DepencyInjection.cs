@@ -12,6 +12,7 @@ using Infrastructure.Services;
 using Infrastructure.Models;
 using Npgsql;
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.Persistance.DefaultData;
 
 namespace Infrastructure.Extentions
 {
@@ -49,9 +50,9 @@ namespace Infrastructure.Extentions
 
             /*services.Configure<JwtOptions>(configuration.GetSection(nameof(JwtOptions)));*/
 
-            /*using var serviceProvider = services.BuildServiceProvider();
+            using var serviceProvider = services.BuildServiceProvider();
             var hashService = serviceProvider.GetRequiredService<IHashService>();
-            DefaultUserData.Initialize(hashService);*/
+            DefaultUserData.Initialize(hashService);
 
             services.AddApplication();
             return services;

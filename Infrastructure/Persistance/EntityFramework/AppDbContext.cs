@@ -32,8 +32,7 @@ namespace Infrastructure.Persistance.EntityFramework
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<TaskOrFunction> TasksAndFunctions { get; set; }
-        public DbSet<UsefulLink> UsefulLinks { get; set; }
-
+        public DbSet<UsefullLink> UsefulLinks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -73,7 +72,7 @@ namespace Infrastructure.Persistance.EntityFramework
         public async Task SeedAsync(CancellationToken cancellationToken = default)
         {
             using var _context = this.GetService<AppDbContext>();
-            //await _context.Users.AddAsync(DefaultData.DefaultUserData.DefaultUser, cancellationToken);
+            await _context.Users.AddAsync(DefaultData.DefaultUserData.DefaultUser, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
         }
     }

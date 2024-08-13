@@ -43,7 +43,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateSlideCommand command)
+        public async Task<IActionResult> Create([FromForm] CreateSlideCommand command)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateSlideCommand command)
+        public async Task<IActionResult> Update([FromForm] UpdateSlideCommand command)
         {
             try
             {

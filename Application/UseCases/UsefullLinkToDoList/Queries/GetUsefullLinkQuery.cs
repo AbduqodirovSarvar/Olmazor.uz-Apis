@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.UsefullLinkToDoList.Queries
 {
-    public class GetUsefullLinkQuery : IRequest<UsefulLink>
+    public class GetUsefullLinkQuery : IRequest<UsefullLink>
     {
         [Required]
         public Guid Id { get; set; }

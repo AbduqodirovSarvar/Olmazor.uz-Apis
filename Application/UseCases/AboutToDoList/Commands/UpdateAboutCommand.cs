@@ -19,7 +19,7 @@ namespace Application.UseCases.AboutToDoList.Commands
         public string? DescriptionRu { get; set; } = null;
         public string? DescriptionUzRu { get; set; } = null;
         public Guid? LocationId { get; set; } = null;
-        public ICollection<WeekDays>? ReceptionDays { get; set; } = null;
+        public List<WeekDays>? ReceptionDays { get; set; } = null;
         public string? ReceptionTime { get; set; } = null;
     }
 }

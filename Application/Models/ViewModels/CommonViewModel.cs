@@ -9,14 +9,14 @@ namespace Application.Models.ViewModels
 {
     public class CommonViewModel
     {
-        public ICollection<EmployeeCategory> EmployeeCategories { get; set; } = [];
-        public ICollection<PostCategory> PostCategories { get; set; } = [];
-        public ICollection<Sector> Sectors { get; set; } = [];
-        public ICollection<Contact> Contacts { get; set; } = [];
+        public List<EmployeeCategory>? EmployeeCategories { get; set; }
+        public List<PostCategory>? PostCategories { get; set; }
+        public List<Sector>? Sectors { get; set; }
+        public List<Contact>? Contacts { get; set; }
         public About? About { get; set; }
-        public ICollection<JobFair> JobFairs { get; set; } = [];
-        public ICollection<Slide> Slides { get; set; } = [];
-        public ICollection<TaskOrFunction> TasksAndFunctions { get; set;} = [];
-        public ICollection<UsefulLink> UsefulLinks { get; set; } = [];
+        public List<JobFair>? JobFairs { get; set; }
+        public List<Slide>? Slides { get; set; }
+        public List<TaskOrFunction>? TasksAndFunctions { get; set;}
+        public List<UsefullLink>? UsefulLinks { get; set; }
     }
 }

@@ -12,11 +12,11 @@ namespace Application.UseCases.UsefullLinkToDoList.Queries
 {
     public class GetAllUsefullLinkQueryHandler(
         IAppDbContext appDbContext
-        ) : IRequestHandler<GetAllUsefullLinkQuery, List<UsefulLink>>
+        ) : IRequestHandler<GetAllUsefullLinkQuery, List<UsefullLink>>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
 
-        public async Task<List<UsefulLink>> Handle(GetAllUsefullLinkQuery request, CancellationToken cancellationToken)
+        public async Task<List<UsefullLink>> Handle(GetAllUsefullLinkQuery request, CancellationToken cancellationToken)
         {
             var usefullLinks = await _appDbContext.UsefulLinks.ToListAsync(cancellationToken);
             return usefullLinks;

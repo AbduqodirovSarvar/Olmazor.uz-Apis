@@ -37,7 +37,7 @@ namespace Application.UseCases.EmployeeToDoList.Commands
         public string? Position { get; set; } = null;
         public DateOnly? WorkFromDate { get; set; } = null;
         public string? WorkPlace { get; set; } = null;
-        public ICollection<WeekDays>? ReceptionDays { get; set; } = null;
+        public List<WeekDays>? ReceptionDays { get; set; } = null;
         public string? ReceptionTime { get; set; } = null;
     }
 }

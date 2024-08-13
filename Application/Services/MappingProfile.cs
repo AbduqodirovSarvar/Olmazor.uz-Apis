@@ -36,12 +36,17 @@ namespace Application.Services
                 .ForMember(x => x.PasswordHash, y => y.Ignore());
 
             CreateMap<CreateAboutCommand, About>().ReverseMap();
-            CreateMap<About, AboutViewModel>().ReverseMap();
+            CreateMap<About, AboutViewModel>()
+                .ForMember(dest => dest.ReceptionDays,
+                            opt => opt.MapFrom(src => src.ReceptionDays.Select(e => new EnumViewModel { Id = (int)e, Name = e.ToString() }).ToList()));
+
             CreateMap<CreateContactCommand, Contact>().ReverseMap();
             CreateMap<CreateEmployeeCategoryCommand, EmployeeCategory>().ReverseMap();
             CreateMap<CreateEmployeeCommand, Employee>()
                 .ForMember(x => x.Photo, y => y.Ignore());
-            CreateMap<Employee, EmployeeViewModel>().ReverseMap();
+            CreateMap<Employee, EmployeeViewModel>()
+                .ForMember(dest => dest.ReceptionDays,
+                            opt => opt.MapFrom(src => src.ReceptionDays.Select(e => new EnumViewModel { Id = (int)e, Name = e.ToString() }).ToList()));
 
             CreateMap<CreateJobFairCommand, JobFair>().ReverseMap();
 
@@ -61,7 +66,7 @@ namespace Application.Services
 
             CreateMap<CreateTasksAndFunctionsCommand, TaskOrFunction>().ReverseMap();
 
-            CreateMap<CreateUsefullLinkCommand, UsefulLink>()
+            CreateMap<CreateUsefullLinkCommand, UsefullLink>()
                 .ForMember(x => x.Photo, y => y.Ignore());
         }
     }

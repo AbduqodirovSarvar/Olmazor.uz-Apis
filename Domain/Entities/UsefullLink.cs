@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class UsefulLink : NameLocalizableEntity
+    public class UsefullLink : NameLocalizableEntity
     {
         public string Link { get; set; } = null!;
         public string Photo { get; set; } = null!;

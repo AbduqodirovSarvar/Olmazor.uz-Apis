@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  webapi:
+    image: ${DOCKER_REGISTRY-}webapi
+    container_name: olmazor-web
+    build:
+      context: .
+      dockerfile: WebApi/Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=postgresql;Database=Olmazor;Port=5432;User Id=postgres;Password=12345;Include Error Detail=true;
+    networks:
+      - web
+
+  db:
+    container_name: postgresql
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: Olmazor
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - web
+
+volumes:
+  postgres_data:
+
+networks:
+  web:
+    driver: bridge

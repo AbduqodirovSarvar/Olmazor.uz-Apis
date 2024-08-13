@@ -29,7 +29,7 @@ namespace Application.Models.ViewModels
         public string Position { get; set; } = string.Empty;
         public DateOnly WorkFromDate { get; set; }
         public string WorkPlace { get; set; } = string.Empty;
-        public ICollection<EnumViewModel> ReceptionDays { get; set; } = [];
+        public List<EnumViewModel>? ReceptionDays { get; set; }
         public string ReceptionTime { get; set; } = string.Empty;
 
         public Guid CreatedBy { get; set; }

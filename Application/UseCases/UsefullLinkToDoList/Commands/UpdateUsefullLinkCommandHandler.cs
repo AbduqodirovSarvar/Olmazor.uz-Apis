@@ -13,12 +13,12 @@ namespace Application.UseCases.UsefullLinkToDoList.Commands
     public class UpdateUsefullLinkCommandHandler(
         IAppDbContext appDbContext,
         IFileService fileService
-        ) : IRequestHandler<UpdateUsefullLinkCommand, UsefulLink>
+        ) : IRequestHandler<UpdateUsefullLinkCommand, UsefullLink>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IFileService _fileService = fileService;
 
-        public async Task<UsefulLink> Handle(UpdateUsefullLinkCommand request, CancellationToken cancellationToken)
+        public async Task<UsefullLink> Handle(UpdateUsefullLinkCommand request, CancellationToken cancellationToken)
         {
             var usefullLink = await _appDbContext.UsefulLinks.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                                              ?? throw new Exception("Usefull link not found");

@@ -29,7 +29,7 @@ namespace Application.UseCases.JobFairToDoList.Commands
         public string? Phone { get; set; } = null;
         [EmailAddress]
         public string? Email { get; set; } = null;
-        public ICollection<WeekDays>? ReceptionDays { get; set; } = null;
+        public List<WeekDays>? ReceptionDays { get; set; } = null;
         public string? ReceptionTime { get; set; } = null;
     }
 }

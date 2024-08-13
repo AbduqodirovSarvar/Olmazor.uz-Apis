@@ -26,7 +26,7 @@ namespace Application.UseCases.JobFairToDoList.Commands
         public string Phone { get; set; } = null!;
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
-        public ICollection<WeekDays> ReceptionDays { get; set; } = [];
+        public List<WeekDays> ReceptionDays { get; set; } = [];
         public string ReceptionTime { get; set; } = string.Empty;
     }
 }

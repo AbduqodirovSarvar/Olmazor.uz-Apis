@@ -15,7 +15,7 @@ namespace Domain.Entities
         public string Phone { get; set; } = string.Empty;
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
-        public ICollection<WeekDays> ReceptionDays { get; set; } = [];
+        public List<WeekDays> ReceptionDays { get; set; } = [];
         public string ReceptionTime { get; set; } = string.Empty;
     }
 }

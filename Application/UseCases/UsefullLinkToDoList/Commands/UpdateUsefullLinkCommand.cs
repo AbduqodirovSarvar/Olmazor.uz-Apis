@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.UsefullLinkToDoList.Commands
 {
-    public class UpdateUsefullLinkCommand : IRequest<UsefulLink>
+    public class UpdateUsefullLinkCommand : IRequest<UsefullLink>
     {
         [Required]
         public Guid Id { get; set; }

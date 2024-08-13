@@ -23,7 +23,7 @@ namespace Application.UseCases.AboutToDoList.Commands
         public string DescriptionUzRu { get; set; } = null!;
         [Required]
         public Guid LocationId { get; set; }
-        public ICollection<WeekDays> ReceptionDays { get; set; } = [];
+        public List<WeekDays> ReceptionDays { get; set; } = [];
         public string? ReceptionTime { get; set; }
     }
 }

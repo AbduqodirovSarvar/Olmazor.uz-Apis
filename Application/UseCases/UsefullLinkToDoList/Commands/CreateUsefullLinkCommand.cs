@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.UsefullLinkToDoList.Commands
 {
-    public class CreateUsefullLinkCommand : IRequest<UsefulLink>
+    public class CreateUsefullLinkCommand : IRequest<UsefullLink>
     {
         [Required]
         public string NameUz { get; set; } = null!;

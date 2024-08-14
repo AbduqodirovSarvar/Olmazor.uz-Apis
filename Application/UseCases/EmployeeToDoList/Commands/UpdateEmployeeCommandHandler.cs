@@ -37,7 +37,10 @@ namespace Application.UseCases.EmployeeToDoList.Commands
 
             employee.BirthPlace = request.BirthPlace ?? employee.BirthPlace;
             employee.Birthday = request.Birthday ?? employee.Birthday;
-            employee.Position = request.Position ?? employee.Position;
+            employee.PositionEn = request.PositionEn ?? employee.PositionEn;
+            employee.PositionRu = request.PositionRu ?? employee.PositionRu;
+            employee.PositionUz = request.PositionUz ?? employee.PositionUz;
+            employee.PositionUzRu = request.PositionUzRu ?? employee.PositionUzRu;
             employee.Gender = request.Gender ?? employee.Gender;
 
             employee.WorkPlace = request.WorkPlace ?? employee.WorkPlace;

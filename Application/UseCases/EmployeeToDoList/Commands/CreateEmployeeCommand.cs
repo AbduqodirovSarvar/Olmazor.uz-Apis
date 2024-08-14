@@ -38,7 +38,10 @@ namespace Application.UseCases.EmployeeToDoList.Commands
         public string Nationality { get; set; } = string.Empty;
         public DateOnly Birthday { get; set; }
         public string BirthPlace { get; set; } = string.Empty;
-        public string Position { get; set; } = string.Empty;
+        public string PositionEn { get; set; } = string.Empty;
+        public string PositionUz { get; set; } = string.Empty;
+        public string PositionRu { get; set; } = string.Empty;
+        public string PositionUzRu { get; set; } = string.Empty;
         public DateOnly WorkFromDate { get; set; }
         public string WorkPlace { get; set; } = string.Empty;
         public List<WeekDays> ReceptionDays { get; set; } = [];

@@ -44,7 +44,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTasksAndFunctionsCommand command)
         {
             try
@@ -70,7 +70,7 @@ namespace WebApi.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpDelete]
         public async Task<IActionResult> Delete(DeleteTasksAndFunctionsCommand command)
         {
             try

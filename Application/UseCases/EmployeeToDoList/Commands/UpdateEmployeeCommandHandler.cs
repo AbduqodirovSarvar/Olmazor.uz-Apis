@@ -30,7 +30,10 @@ namespace Application.UseCases.EmployeeToDoList.Commands
             employee.FirstnameRu = request.FirstnameRu ?? employee.FirstnameRu;
             employee.LastnameEn = request.LastnameEn ?? employee.LastnameEn;
             employee.LastnameRu = request.LastnameRu ?? employee.LastnameRu;
-            employee.Nationality = request.Nationality ?? employee.Nationality;
+            employee.NationalityEn = request.NationalityEn ?? employee.NationalityEn;
+            employee.NationalityUz = request.NationalityUz ?? employee.NationalityUz;
+            employee.NationalityRu = request.NationalityRu ?? employee.NationalityRu;
+            employee.NationalityUzRu = request.NationalityUzRu ?? employee.NationalityUzRu;
             employee.Email = request.Email ?? employee.Email;
             employee.Phone1 = request.Phone1 ?? employee.Phone1;
             employee.Phone2 = request.Phone2 ?? employee.Phone2;

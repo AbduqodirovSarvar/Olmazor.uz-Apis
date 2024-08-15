@@ -31,7 +31,10 @@ namespace Application.UseCases.EmployeeToDoList.Commands
 
         public IFormFile? Photo { get; set; } = null;
         public Guid? SubEmployeeCategoryId { get; set; }
-        public string? Nationality { get; set; } = null;
+        public string? NationalityEn { get; set; } = null;
+        public string? NationalityUz { get; set; } = null;
+        public string? NationalityRu { get; set; } = null;
+        public string? NationalityUzRu { get; set; } = null;
         public DateOnly? Birthday { get; set; } = null;
         public string? BirthPlace { get; set; } = null;
         public string? PositionEn { get; set; } = null;

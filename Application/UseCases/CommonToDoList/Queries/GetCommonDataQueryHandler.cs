@@ -1,6 +1,7 @@
 ﻿using Application.Abstractions;
 using Application.Models.ViewModels;
 using AutoMapper;
+using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,54 +13,44 @@ using System.Threading.Tasks;
 namespace Application.UseCases.CommonToDoList.Queries
 {
     public class GetCommonDataQueryHandler(
-        IAppDbContext appDbContext
+        IAppDbContext appDbContext,
+        IMapper mapper
         ) : IRequestHandler<GetCommonDataQuery, CommonViewModel>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
+        private readonly IMapper _mapper = mapper;
 
         public async Task<CommonViewModel> Handle(GetCommonDataQuery request, CancellationToken cancellationToken)
         {
-            var slidesTask = await _appDbContext.Slides.ToListAsync(cancellationToken);
-            var contactsTask = await _appDbContext.Contacts.ToListAsync(cancellationToken);
-            var aboutTask = await _appDbContext.Abouts.Include(x => x.Location)
+            var slides = await _appDbContext.Slides.ToListAsync(cancellationToken);
+            var contacts = await _appDbContext.Contacts.ToListAsync(cancellationToken);
+            var about = await _appDbContext.Abouts.Include(x => x.Location)
                                          .OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync(cancellationToken);
-            var employeesTask = await _appDbContext.EmployeesCategories
+            var employees = await _appDbContext.EmployeesCategories
                                          .Include(x => x.SubEmployeeCategories).ThenInclude(x => x.Employees)
                                          .ToListAsync(cancellationToken);
-            var jobfairsTask =await _appDbContext.JobFairs.ToListAsync(cancellationToken);
-            var postsTask = await _appDbContext.PostCategories
+            var jobfairs =await _appDbContext.JobFairs.ToListAsync(cancellationToken);
+            var posts = await _appDbContext.PostCategories
                                          .Include(x => x.Posts)
                                          .ToListAsync(cancellationToken);
-            var sectorsTask = await _appDbContext.Sectors
+            var sectors = await _appDbContext.Sectors
                                          .Include(x => x.Location)
                                          .Include(x => x.Employee)
                                          .ToListAsync(cancellationToken);
-            var tasksOrFunctionsTask = await _appDbContext.TasksAndFunctions.ToListAsync(cancellationToken);
-            var usefullLinksTask = await _appDbContext.UsefulLinks.ToListAsync(cancellationToken);
-
-             /*Task.WhenAll(
-                slidesTask, 
-                contactsTask,
-                aboutTask,
-                employeesTask,
-                jobfairsTask,
-                postsTask,
-                sectorsTask,
-                tasksOrFunctionsTask,
-                usefullLinksTask
-                );*/
+            var tasksOrFunctions = await _appDbContext.TasksAndFunctions.ToListAsync(cancellationToken);
+            var usefullLinks = await _appDbContext.UsefulLinks.ToListAsync(cancellationToken);
 
             return new CommonViewModel()
             {
-                Slides = slidesTask,
-                Contacts = contactsTask,
-                About = aboutTask,
-                EmployeeCategories = employeesTask,
-                JobFairs = jobfairsTask,
-                PostCategories = postsTask,
-                Sectors = sectorsTask,
-                TasksAndFunctions = tasksOrFunctionsTask,
-                UsefulLinks = usefullLinksTask
+                Slides = _mapper.Map<List<SlideViewModel>>(slides),
+                Contacts = _mapper.Map<List<ContactViewModel>>(contacts),
+                About = _mapper.Map<AboutViewModel>(about),
+                EmployeeCategories = _mapper.Map<List<EmployeeCategoryViewModel>>(employees),
+                JobFairs = _mapper.Map<List<JobFairViewModel>>(jobfairs),
+                PostCategories = _mapper.Map<List<PostCategoryViewModel>>(posts),
+                Sectors = _mapper.Map<List<SectorViewModel>>(sectors),
+                TasksAndFunctions = _mapper.Map<List<TaskOrFunctionsViewModel>>(tasksOrFunctions),
+                UsefulLinks = _mapper.Map<List<UsefullLinkViewModel>>(usefullLinks)
             };
 
         }

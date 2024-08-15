@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace WebApi.Extensions
 {
@@ -20,6 +21,14 @@ namespace WebApi.Extensions
             {
                 options.MultipartBodyLengthLimit = 104857600;
             });
+
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                    options.JsonSerializerOptions.WriteIndented = true; // Optional
+                });
+
             builder.Services.AddAuthentication(o =>
             {
                 o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;

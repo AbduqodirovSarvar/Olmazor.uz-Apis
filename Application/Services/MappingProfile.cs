@@ -25,50 +25,50 @@ namespace Application.Services
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile() 
+        public MappingProfile()
         {
-            CreateMap<Enum, EnumViewModel>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Convert.ToInt32(src)))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));
-
             CreateMap<CreateUserCommand, User>()
                 .ForMember(x => x.Photo, y => y.Ignore())
                 .ForMember(x => x.PasswordHash, y => y.Ignore());
-
             CreateMap<CreateAboutCommand, About>().ReverseMap();
-            CreateMap<About, AboutViewModel>()
-                .ForMember(dest => dest.ReceptionDays,
-                            opt => opt.MapFrom(src => src.ReceptionDays.Select(e => new EnumViewModel { Id = (int)e, Name = e.ToString() }).ToList()));
-
-            CreateMap<User, UserViewModel>().ReverseMap();
+            CreateMap<CreateJobFairCommand, JobFair>().ReverseMap();
+            CreateMap<CreateLocationCommand, Location>().ReverseMap();
+            CreateMap<CreatePostCategoryCommand, PostCategory>().ReverseMap();
+            CreateMap<CreatePostCommand, Post>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+            CreateMap<CreateSectorCommand, Sector>().ReverseMap();
+            CreateMap<CreateSlideCommand, Slide>()
+                .ForMember(x => x.Photo, y => y.Ignore());
+            CreateMap<CreateSubEmployeeCategoryCommand, SubEmployeeCategory>().ReverseMap();
+            CreateMap<CreateTasksAndFunctionsCommand, TaskOrFunction>().ReverseMap();
+            CreateMap<CreateUsefullLinkCommand, UsefullLink>()
+                .ForMember(x => x.Photo, y => y.Ignore());
             CreateMap<CreateContactCommand, Contact>().ReverseMap();
             CreateMap<CreateEmployeeCategoryCommand, EmployeeCategory>().ReverseMap();
             CreateMap<CreateEmployeeCommand, Employee>()
                 .ForMember(x => x.Photo, y => y.Ignore());
+
+            CreateMap<Enum, EnumViewModel>()
+               .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Convert.ToInt32(src)))
+               .ForMember(dest => dest.Name, opt => opt.MapFrom(z => z.ToString()));
+            CreateMap<About, AboutViewModel>()
+                    .ForMember(dest => dest.ReceptionDays,
+                                opt => opt.MapFrom(src => src.ReceptionDays.Select(e => new EnumViewModel { Id = (int)e, Name = e.ToString() }).ToList()));
+            CreateMap<Contact, ContactViewModel>().ReverseMap();
             CreateMap<Employee, EmployeeViewModel>()
                 .ForMember(dest => dest.ReceptionDays,
                             opt => opt.MapFrom(src => src.ReceptionDays.Select(e => new EnumViewModel { Id = (int)e, Name = e.ToString() }).ToList()));
-
-            CreateMap<CreateJobFairCommand, JobFair>().ReverseMap();
-
-            CreateMap<CreateLocationCommand, Location>().ReverseMap();
-
-            CreateMap<CreatePostCategoryCommand, PostCategory>().ReverseMap();
-
-            CreateMap<CreatePostCommand, Post>()
-                .ForMember(x => x.Photo, y => y.Ignore());
-
-            CreateMap<CreateSectorCommand, Sector>().ReverseMap();
-
-            CreateMap<CreateSlideCommand, Slide>()
-                .ForMember(x => x.Photo, y => y.Ignore());
-
-            CreateMap<CreateSubEmployeeCategoryCommand, SubEmployeeCategory>().ReverseMap();
-
-            CreateMap<CreateTasksAndFunctionsCommand, TaskOrFunction>().ReverseMap();
-
-            CreateMap<CreateUsefullLinkCommand, UsefullLink>()
-                .ForMember(x => x.Photo, y => y.Ignore());
+            CreateMap<EmployeeCategory, EmployeeCategoryViewModel>().ReverseMap();
+            CreateMap<JobFair, JobFairViewModel>().ReverseMap();
+            CreateMap<Location, LocationViewModel>().ReverseMap();
+            CreateMap<Post, PostViewModel>().ReverseMap();
+            CreateMap<PostCategory, PostCategoryViewModel>().ReverseMap();
+            CreateMap<Sector, SectorViewModel>().ReverseMap();
+            CreateMap<Slide, SlideViewModel>().ReverseMap();
+            CreateMap<SubEmployeeCategory, SubEmployeeCategoryViewModel>().ReverseMap();
+            CreateMap<TaskOrFunction, TaskOrFunctionsViewModel>().ReverseMap();
+            CreateMap<UsefullLink, UsefullLinkViewModel>().ReverseMap();
+            CreateMap<User, UserViewModel>().ReverseMap();
         }
     }
 }

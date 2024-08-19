@@ -73,6 +73,8 @@ namespace Infrastructure.Persistance.EntityFramework
         {
             using var _context = this.GetService<AppDbContext>();
             await _context.Users.AddAsync(DefaultData.DefaultUserData.DefaultUser, cancellationToken);
+            await _context.PostCategories.AddRangeAsync(DefaultData.DefaultPostCategoryData.DefaultPostCategory, cancellationToken);
+
             await _context.SaveChangesAsync(cancellationToken);
         }
     }

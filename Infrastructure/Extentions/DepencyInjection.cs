@@ -51,6 +51,7 @@ namespace Infrastructure.Extentions
             using var serviceProvider = services.BuildServiceProvider();
             var hashService = serviceProvider.GetRequiredService<IHashService>();
             DefaultUserData.Initialize(hashService);
+            DefaultPostCategoryData.Initialize();
 
             services.AddApplication();
             return services;

@@ -45,7 +45,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateSectorCommand command)
+        public async Task<IActionResult> Create([FromForm] CreateSectorCommand command)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateSectorCommand command)
+        public async Task<IActionResult> Update([FromForm] UpdateSectorCommand command)
         {
             try
             {

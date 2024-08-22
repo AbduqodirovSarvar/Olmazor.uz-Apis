@@ -8,9 +8,10 @@ namespace Domain.Abstractions.Interfaces
 {
     public interface INameLocalizableEntity
     {
-        string NameUz { get; set; }
-        string NameEn { get; set; }
-        string NameRu { get; set; }
-        string NameUzRu { get; set; }
+        string? NameUz { get; set; }
+        string? NameEn { get; set; }
+        string? NameRu { get; set; }
+        string? NameUzRu { get; set; }
+        string? NameKaa { get; set; }
     }
 }

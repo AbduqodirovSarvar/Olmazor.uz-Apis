@@ -38,19 +38,37 @@ namespace Application.UseCases.EmployeeToDoList.Commands
             employee.Phone1 = request.Phone1 ?? employee.Phone1;
             employee.Phone2 = request.Phone2 ?? employee.Phone2;
 
-            employee.BirthPlace = request.BirthPlace ?? employee.BirthPlace;
+            employee.BirthPlaceUz = request.BirthPlaceUz ?? employee.BirthPlaceUz;
+            employee.BirthPlaceRu = request.BirthPlaceRu ?? employee.BirthPlaceRu;
+            employee.BirthPlaceEn = request.BirthPlaceEn ?? employee.BirthPlaceEn;
+            employee.BirthPlaceUzRu = request.BirthPlaceUzRu ?? employee.BirthPlaceUzRu;
+            employee.BirthPlaceKaa = request.BirthPlaceKaa ?? employee.BirthPlaceKaa;
+
             employee.Birthday = request.Birthday ?? employee.Birthday;
+
             employee.PositionEn = request.PositionEn ?? employee.PositionEn;
             employee.PositionRu = request.PositionRu ?? employee.PositionRu;
             employee.PositionUz = request.PositionUz ?? employee.PositionUz;
             employee.PositionUzRu = request.PositionUzRu ?? employee.PositionUzRu;
+            employee.PositionKaa = request.PositionKaa ?? employee.PositionKaa;
+
             employee.Gender = request.Gender ?? employee.Gender;
 
-            employee.WorkPlace = request.WorkPlace ?? employee.WorkPlace;
+            employee.Category = request.Category ?? employee.Category;
+
             employee.WorkFromDate = request.WorkFromDate ?? employee.WorkFromDate;
-            employee.ReceptionDays = request.ReceptionDays ?? employee.ReceptionDays;
-            employee.ReceptionTime = request.ReceptionTime ?? employee.ReceptionTime;
-            employee.SubEmployeeCategoryId = request.SubEmployeeCategoryId ?? employee.SubEmployeeCategoryId;
+
+            employee.WorkPlaceRu = request.WorkPlaceRu ?? employee.WorkPlaceRu;
+            employee.WorkPlaceUz = request.WorkPlaceUz ?? employee.WorkPlaceUz;
+            employee.WorkPlaceUzRu = request.WorkPlaceUzRu ?? employee.WorkPlaceUzRu;
+            employee.WorkPlaceEn = request.WorkPlaceEn ?? employee.WorkPlaceEn;
+            employee.WorkPlaceKaa = request.WorkPlaceKaa ?? employee.WorkPlaceKaa;
+
+            employee.ReceptionTimeEn = request.ReceptionTimeEn ?? employee.ReceptionTimeEn;
+            employee.ReceptionTimeRu = request.ReceptionTimeRu ?? employee.ReceptionTimeRu;
+            employee.ReceptionTimeUz = request.ReceptionTimeUz ?? employee.ReceptionTimeUz;
+            employee.ReceptionTimeUzRu = request.ReceptionTimeUzRu ?? employee.ReceptionTimeUzRu;
+            employee.ReceptionTimeKaa = request.ReceptionTimeKaa ?? employee.ReceptionTimeKaa;
 
             if (request.Photo != null)
             {

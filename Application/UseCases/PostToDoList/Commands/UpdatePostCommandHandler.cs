@@ -27,13 +27,15 @@ namespace Application.UseCases.PostToDoList.Commands
             post.NameEn = request.NameEn ?? post.NameEn;
             post.NameUz = request.NameUz ?? post.NameUz;
             post.NameUzRu = request.NameUzRu ?? post.NameUzRu;
+            post.NameKaa = request.NameKaa ?? post.NameKaa;
 
             post.DescriptionEn = request.DescriptionEn ?? post.DescriptionEn;
             post.DescriptionRu = request.DescriptionRu ?? post.DescriptionRu;
             post.DescriptionUz = request.DescriptionUz ?? post.DescriptionUz;
             post.DescriptionUzRu = request.DescriptionUzRu ?? post.DescriptionUzRu;
+            post.DescriptionKaa = request.DescriptionKaa ?? post.DescriptionKaa;
 
-            post.PostCategoryId = request.PostCategoryId ?? post.PostCategoryId;
+            post.Category = request.Category ?? post.Category;
             post.Photo = await _fileService.SaveFileAsync(request.Photo);
 
             await _appDbContext.SaveChangesAsync(cancellationToken);

@@ -7,8 +7,9 @@ using Application.Models.ViewModels.Abstractions;
 
 namespace Application.Models.ViewModels
 {
-    public class ContactViewModel : NameLocalizableViewModel
+    public class ContactViewModel : AbstractViewModel
     {
+        public EnumViewModel Type { get; set; }
         public string? Value { get; set; }
     }
 }

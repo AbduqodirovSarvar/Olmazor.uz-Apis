@@ -20,6 +20,7 @@ namespace Application.UseCases.UsefullLinkToDoList.Commands
         public string NameRu { get; set; } = null!;
         [Required]
         public string NameUzRu { get; set; } = null!;
+        public string NameKaa { get; set; } = string.Empty;
         [Required]
         public string Link { get; set; } = null!;
         [Required]

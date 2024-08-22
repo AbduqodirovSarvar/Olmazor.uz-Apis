@@ -12,7 +12,10 @@ namespace Domain.Entities
     {
         public Guid LocationId { get; set; }
         public Location? Location { get; set; }
-        public List<WeekDays> ReceptionDays { get; set; } = [];
-        public string ReceptionTime { get; set; } = string.Empty;
+        public string? ReceptionTimeUz { get; set; }
+        public string? ReceptionTimeEn { get; set; }
+        public string? ReceptionTimeRu { get; set; }
+        public string? ReceptionTimeUzRu { get; set; }
+        public string? ReceptionTimeKaa { get; set; }
     }
 }

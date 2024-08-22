@@ -1,4 +1,5 @@
 ﻿using Application.Abstractions;
+using Application.Services;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -11,10 +12,12 @@ using System.Threading.Tasks;
 namespace Application.UseCases.SectorToDoList.Commands
 {
     public class UpdateSectorCommandHandler(
-        IAppDbContext appDbContext
+        IAppDbContext appDbContext,
+        IFileService fileService
         ) : IRequestHandler<UpdateSectorCommand, Sector>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
+        private readonly IFileService _fileService = fileService;
 
         public async Task<Sector> Handle(UpdateSectorCommand request, CancellationToken cancellationToken)
         {
@@ -31,6 +34,10 @@ namespace Application.UseCases.SectorToDoList.Commands
             sector.DescriptionUzRu = request.DescriptionUzRu ?? sector.DescriptionUzRu;
             sector.EmployeeId = request.EmployeeId ?? sector.EmployeeId;
             sector.LocationId = request.LocationId ?? sector.LocationId;
+            if(request.Photo != null)
+            {
+                sector.Photo = await _fileService.SaveFileAsync(request.Photo);
+            }
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return sector;

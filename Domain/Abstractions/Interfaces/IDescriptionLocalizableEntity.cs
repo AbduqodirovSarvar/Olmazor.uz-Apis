@@ -8,9 +8,10 @@ namespace Domain.Abstractions.Interfaces
 {
     public interface IDescriptionLocalizableEntity
     {
-        string DescriptionUz { get; set; }
-        string DescriptionEn { get; set; }
-        string DescriptionRu { get; set; }
-        string DescriptionUzRu { get; set; }
+        string? DescriptionUz { get; set; }
+        string? DescriptionEn { get; set; }
+        string? DescriptionRu { get; set; }
+        string? DescriptionUzRu { get; set; }
+        string? DescriptionKaa { get; set; }
     }
 }

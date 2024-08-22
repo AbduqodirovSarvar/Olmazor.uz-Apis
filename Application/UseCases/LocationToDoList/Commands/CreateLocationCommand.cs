@@ -19,6 +19,7 @@ namespace Application.UseCases.LocationToDoList.Commands
         public string NameRu { get; set; } = null!;
         [Required]
         public string NameUzRu { get; set; } = null!;
+        public string NameKaa { get; set; } = string.Empty;
         [Required]
         public double Latitude { get; set; }
         [Required]

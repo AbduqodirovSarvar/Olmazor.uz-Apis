@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistance.Configurations
 {
-    public class ContactTypeConfiguration : NameLocalizableConfiguration<Contact>
+    public class ContactTypeConfiguration : AudiTableEntityConfiguration<Contact>
     {
         public override void Configure(EntityTypeBuilder<Contact> builder)
         {

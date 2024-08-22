@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,7 @@ namespace Application.UseCases.ContactToDoList.Commands
     {
         [Required]
         public Guid Id { get; set; }
-        public string? NameUz { get; set; } = null;
-        public string? NameEn { get; set; } = null;
-        public string? NameRu { get; set; } = null;
-        public string? NameUzRu { get; set; } = null;
+        public ContactType? Type { get; set; } = null;
         public string? Value { get; set; } = null;
     }
 }

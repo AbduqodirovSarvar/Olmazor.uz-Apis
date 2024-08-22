@@ -28,9 +28,13 @@ namespace Application.UseCases.AboutToDoList.Commands
             about.DescriptionEn = request.DescriptionEn ?? about.DescriptionEn;
             about.DescriptionUz = request.DescriptionUz ?? about.DescriptionUz;
             about.DescriptionUzRu = request.DescriptionUzRu ?? about.DescriptionUz;
+            about.DescriptionKaa = request.DescriptionKaa ?? about.DescriptionKaa;
             about.LocationId = request.LocationId ?? about.LocationId;
-            about.ReceptionDays = request.ReceptionDays ?? about.ReceptionDays;
-            about.ReceptionTime = request.ReceptionTime ?? about.ReceptionTime;
+            about.ReceptionTimeEn = request.ReceptionTimeEn ?? about.ReceptionTimeEn;
+            about.ReceptionTimeRu = request.ReceptionTimeRu ?? about.ReceptionTimeRu;
+            about.ReceptionTimeUz = request.ReceptionTimeUz ?? about.ReceptionTimeUz;
+            about.ReceptionTimeUzRu = request.ReceptionTimeUzRu ?? about.ReceptionTimeUzRu;
+            about.ReceptionTimeKaa = request.ReceptionTimeKaa ?? about.ReceptionTimeKaa;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
 

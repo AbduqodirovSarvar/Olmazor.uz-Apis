@@ -20,6 +20,7 @@ namespace Application.UseCases.SlideToDoList.Commands
         public string NameRu { get; set; } = null!;
         [Required]
         public string NameUzRu { get; set; } = null!;
+        public string NameKaa { get; set; } = string.Empty;
 
         [Required]
         public string DescriptionUz { get; set; } = null!;
@@ -29,6 +30,7 @@ namespace Application.UseCases.SlideToDoList.Commands
         public string DescriptionRu { get; set; } = null!;
         [Required]
         public string DescriptionUzRu { get; set; } = null!;
+        public string DescriptionKaa { get; set; } = string.Empty;
         [Required]
         public IFormFile Photo { get; set; } = null!;
     }

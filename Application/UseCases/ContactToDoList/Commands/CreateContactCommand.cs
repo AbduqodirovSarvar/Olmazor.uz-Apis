@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,7 @@ namespace Application.UseCases.ContactToDoList.Commands
     public class CreateContactCommand : IRequest<Contact>
     {
         [Required]
-        public string NameUz { get; set; } = null!;
-        [Required]
-        public string NameEn { get; set; } = null!;
-        [Required]
-        public string NameRu { get; set; } = null!;
-        [Required]
-        public string NameUzRu { get; set; } = null!;
+        public ContactType Type { get; set; }
         public string? Value { get; set; }
     }
 }

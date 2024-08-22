@@ -12,15 +12,18 @@ namespace Application.UseCases.SectorToDoList.Commands
 {
     public class CreateSectorCommandHandler(
         IAppDbContext appDbContext,
-        IMapper mapper
+        IMapper mapper,
+        IFileService fileService 
         ) : IRequestHandler<CreateSectorCommand, Sector>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
         private readonly IMapper _mapper = mapper;
+        private readonly IFileService _fileService = fileService;
 
         public async Task<Sector> Handle(CreateSectorCommand request, CancellationToken cancellationToken)
         {
             var sector = _mapper.Map<Sector>(request);
+            sector.Photo = await _fileService.SaveFileAsync(request.Photo);
             await _appDbContext.Sectors.AddAsync(sector, cancellationToken);
             await _appDbContext.SaveChangesAsync(cancellationToken);
 

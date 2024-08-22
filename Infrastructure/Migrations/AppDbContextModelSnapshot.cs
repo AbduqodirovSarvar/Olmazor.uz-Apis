@@ -3,7 +3,6 @@ using System;
 using Infrastructure.Persistance.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,11 +11,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240815070416_Initial3")]
-    partial class Initial3
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,30 +35,36 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uuid");
 
-                    b.Property<int[]>("ReceptionDays")
-                        .IsRequired()
-                        .HasColumnType("integer[]");
+                    b.Property<string>("ReceptionTimeEn")
+                        .HasColumnType("text");
 
-                    b.Property<string>("ReceptionTime")
-                        .IsRequired()
+                    b.Property<string>("ReceptionTimeKaa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeUzRu")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -89,21 +92,8 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("NameEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Type")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -116,9 +106,6 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
-                        .IsUnique();
-
                     b.ToTable("Contacts");
                 });
 
@@ -128,12 +115,26 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("BirthPlace")
-                        .IsRequired()
+                    b.Property<string>("BirthPlaceEn")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceKaa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceUzRu")
                         .HasColumnType("text");
 
                     b.Property<DateOnly>("Birthday")
                         .HasColumnType("date");
+
+                    b.Property<int>("Category")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -165,19 +166,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NationalityKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Phone1")
@@ -192,31 +192,34 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PositionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PositionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("PositionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PositionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PositionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int[]>("ReceptionDays")
-                        .IsRequired()
-                        .HasColumnType("integer[]");
-
-                    b.Property<string>("ReceptionTime")
-                        .IsRequired()
+                    b.Property<string>("ReceptionTimeEn")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("SubEmployeeCategoryId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("ReceptionTimeKaa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeUzRu")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -227,8 +230,19 @@ namespace Infrastructure.Migrations
                     b.Property<DateOnly>("WorkFromDate")
                         .HasColumnType("date");
 
-                    b.Property<string>("WorkPlace")
-                        .IsRequired()
+                    b.Property<string>("WorkPlaceEn")
+                        .HasColumnType("text");
+
+                    b.Property<string>("WorkPlaceKaa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("WorkPlaceRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("WorkPlaceUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("WorkPlaceUzRu")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -236,128 +250,10 @@ namespace Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.HasIndex("SubEmployeeCategoryId");
-
                     b.HasIndex("Phone1", "Phone2")
                         .IsUnique();
 
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("Domain.Entities.EmployeeCategory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("NameEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
-                        .IsUnique();
-
-                    b.ToTable("EmployeesCategories");
-                });
-
-            modelBuilder.Entity("Domain.Entities.JobFair", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("DescriptionEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DescriptionRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DescriptionUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int[]>("ReceptionDays")
-                        .IsRequired()
-                        .HasColumnType("integer[]");
-
-                    b.Property<string>("ReceptionTime")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
-                        .IsUnique();
-
-                    b.ToTable("JobFairs");
                 });
 
             modelBuilder.Entity("Domain.Entities.Location", b =>
@@ -379,19 +275,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -414,6 +309,9 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<int>("Category")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -421,43 +319,38 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("PostCategoryId")
-                        .HasColumnType("uuid");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -465,55 +358,11 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PostCategoryId");
 
                     b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
                         .IsUnique();
 
                     b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("Domain.Entities.PostCategory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("NameEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
-                        .IsUnique();
-
-                    b.ToTable("PostCategories");
                 });
 
             modelBuilder.Entity("Domain.Entities.Sector", b =>
@@ -529,19 +378,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("EmployeeId")
@@ -551,19 +399,21 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Photo")
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -597,35 +447,33 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
@@ -646,111 +494,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("Slides");
                 });
 
-            modelBuilder.Entity("Domain.Entities.SubEmployeeCategory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("EmployeeCategoryId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("NameEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmployeeCategoryId");
-
-                    b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
-                        .IsUnique();
-
-                    b.ToTable("SubEmployeeCategories");
-                });
-
-            modelBuilder.Entity("Domain.Entities.TaskOrFunction", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("DescriptionEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DescriptionRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DescriptionUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameEn")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUz")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NameUzRu")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("UpdatedBy")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NameEn", "NameUz", "NameRu", "NameUzRu")
-                        .IsUnique();
-
-                    b.ToTable("TasksAndFunctions");
-                });
-
             modelBuilder.Entity("Domain.Entities.UsefullLink", b =>
                 {
                     b.Property<Guid>("Id")
@@ -768,19 +511,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
@@ -882,28 +624,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Employee", b =>
-                {
-                    b.HasOne("Domain.Entities.SubEmployeeCategory", "SubEmployeeCategory")
-                        .WithMany("Employees")
-                        .HasForeignKey("SubEmployeeCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SubEmployeeCategory");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Post", b =>
-                {
-                    b.HasOne("Domain.Entities.PostCategory", "PostCategory")
-                        .WithMany("Posts")
-                        .HasForeignKey("PostCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PostCategory");
-                });
-
             modelBuilder.Entity("Domain.Entities.Sector", b =>
                 {
                     b.HasOne("Domain.Entities.Employee", "Employee")
@@ -921,32 +641,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Location");
-                });
-
-            modelBuilder.Entity("Domain.Entities.SubEmployeeCategory", b =>
-                {
-                    b.HasOne("Domain.Entities.EmployeeCategory", "EmployeeCategory")
-                        .WithMany("SubEmployeeCategories")
-                        .HasForeignKey("EmployeeCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EmployeeCategory");
-                });
-
-            modelBuilder.Entity("Domain.Entities.EmployeeCategory", b =>
-                {
-                    b.Navigation("SubEmployeeCategories");
-                });
-
-            modelBuilder.Entity("Domain.Entities.PostCategory", b =>
-                {
-                    b.Navigation("Posts");
-                });
-
-            modelBuilder.Entity("Domain.Entities.SubEmployeeCategory", b =>
-                {
-                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

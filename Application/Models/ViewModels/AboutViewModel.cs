@@ -14,6 +14,10 @@ namespace Application.Models.ViewModels
     {
         public Guid LocationId { get; set; }
         public LocationViewModel? Location { get; set; }
-        public List<EnumViewModel>? ReceptionDays { get; set; }
+        public string? ReceptionTimeUz { get; set; }
+        public string? ReceptionTimeEn { get; set; }
+        public string? ReceptionTimeRu { get; set; }
+        public string? ReceptionTimeUzRu { get; set; }
+        public string? ReceptionTimeKaa { get; set; }
     }
 }

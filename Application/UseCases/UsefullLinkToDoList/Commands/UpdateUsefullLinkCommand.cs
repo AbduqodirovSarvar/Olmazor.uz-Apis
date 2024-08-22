@@ -19,6 +19,7 @@ namespace Application.UseCases.UsefullLinkToDoList.Commands
         public string? NameEn { get; set; } = null;
         public string? NameRu { get; set; } = null;
         public string? NameUzRu { get; set; } = null;
+        public string? NameKaa { get; set; } = null;
         public string? Link { get; set; } = null;
         public IFormFile? Photo { get; set; } = null;
     }

@@ -25,6 +25,8 @@ namespace Application.UseCases.LocationToDoList.Commands
             location.NameRu = request.NameRu ?? location.NameRu;
             location.NameUz = request.NameUz ?? location.NameUz;
             location.NameUzRu = request.NameUzRu ?? location.NameUzRu;
+            location.NameKaa = request.NameKaa ?? location.NameKaa;
+
             location.Latitude = request.Latitude ?? location.Latitude;
             location.Longitude = request.Longitude ?? location.Longitude;
 

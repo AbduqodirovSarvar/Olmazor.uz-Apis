@@ -18,8 +18,12 @@ namespace Application.UseCases.AboutToDoList.Commands
         public string? DescriptionEn { get; set; } = null;
         public string? DescriptionRu { get; set; } = null;
         public string? DescriptionUzRu { get; set; } = null;
+        public string? DescriptionKaa { get; set; } = null;
         public Guid? LocationId { get; set; } = null;
-        public List<WeekDays>? ReceptionDays { get; set; } = null;
-        public string? ReceptionTime { get; set; } = null;
+        public string? ReceptionTimeUz { get; set; } = null;
+        public string? ReceptionTimeEn { get; set; } = null;
+        public string? ReceptionTimeRu { get; set; } = null;
+        public string? ReceptionTimeUzRu { get; set; } = null;
+        public string? ReceptionTimeKaa { get; set; } = null;
     }
 }

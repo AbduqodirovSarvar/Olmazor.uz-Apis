@@ -21,9 +21,13 @@ namespace Application.UseCases.AboutToDoList.Commands
         public string DescriptionRu { get; set; } = null!;
         [Required]
         public string DescriptionUzRu { get; set; } = null!;
+        public string DescriptionKaa { get; set; } = string.Empty;
         [Required]
         public Guid LocationId { get; set; }
-        public List<WeekDays> ReceptionDays { get; set; } = [];
-        public string? ReceptionTime { get; set; }
+        public string ReceptionTimeUz { get; set; } = string.Empty;
+        public string ReceptionTimeEn { get; set; } = string.Empty;
+        public string ReceptionTimeRu { get; set; } = string.Empty;
+        public string ReceptionTimeUzRu { get; set; } = string.Empty;
+        public string ReceptionTimeKaa { get; set; } = string.Empty;
     }
 }

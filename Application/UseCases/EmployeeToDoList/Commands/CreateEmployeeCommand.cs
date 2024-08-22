@@ -34,20 +34,38 @@ namespace Application.UseCases.EmployeeToDoList.Commands
         public string Email { get; set; } = string.Empty;
 
         public IFormFile? Photo { get; set; }
-        public Guid SubEmployeeCategoryId { get; set; }
+        public EmployeeCategory Category { get; set; }
+
         public string NationalityEn { get; set; } = string.Empty;
         public string NationalityUz { get; set; } = string.Empty;
         public string NationalityRu { get; set; } = string.Empty;
         public string NationalityUzRu { get; set; } = string.Empty;
+        public string NationalityKaa { get; set; } = string.Empty;
+
         public DateOnly Birthday { get; set; }
-        public string BirthPlace { get; set; } = string.Empty;
+        public string BirthPlaceUz { get; set; } = string.Empty;
+        public string BirthPlaceEn { get; set; } = string.Empty;
+        public string BirthPlaceRu { get; set; } = string.Empty;
+        public string BirthPlaceUzRu { get; set; } = string.Empty;
+        public string BirthPlaceKaa { get; set; } = string.Empty;
+
         public string PositionEn { get; set; } = string.Empty;
         public string PositionUz { get; set; } = string.Empty;
         public string PositionRu { get; set; } = string.Empty;
         public string PositionUzRu { get; set; } = string.Empty;
+        public string PositionKaa { get; set; } = string.Empty;
+
         public DateOnly WorkFromDate { get; set; }
-        public string WorkPlace { get; set; } = string.Empty;
-        public List<WeekDays> ReceptionDays { get; set; } = [];
-        public string ReceptionTime { get; set; } = string.Empty;
+        public string WorkPlaceUz { get; set; } = string.Empty;
+        public string WorkPlaceEn { get; set; } = string.Empty;
+        public string WorkPlaceRu { get; set; } = string.Empty;
+        public string WorkPlaceUzRu { get; set; } = string.Empty;
+        public string WorkPlaceKaa { get; set; } = string.Empty;
+
+        public string ReceptionTimeUz { get; set; } = string.Empty;
+        public string ReceptionTimeEn { get; set; } = string.Empty;
+        public string ReceptionTimeRu { get; set; } = string.Empty;
+        public string ReceptionTimeUzRu { get; set; } = string.Empty;
+        public string ReceptionTimeKaa { get; set; } = string.Empty;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Abstractions;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,7 @@ namespace Domain.Entities
 {
     public class Post : FullLocalizableEntity
     {
-        public Guid PostCategoryId { get; set; }
-        public PostCategory? PostCategory { get; set; }
+        public PostCategory Category { get; set; }
         public string? Photo { get; set; }
     }
 }

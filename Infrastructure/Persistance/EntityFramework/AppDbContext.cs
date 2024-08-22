@@ -23,15 +23,10 @@ namespace Infrastructure.Persistance.EntityFramework
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeeCategory> EmployeesCategories { get; set; }
-        public DbSet<SubEmployeeCategory> SubEmployeeCategories { get; set; }
-        public DbSet<JobFair> JobFairs { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<PostCategory> PostCategories { get; set; }
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<Slide> Slides { get; set; }
-        public DbSet<TaskOrFunction> TasksAndFunctions { get; set; }
         public DbSet<UsefullLink> UsefulLinks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -73,7 +68,6 @@ namespace Infrastructure.Persistance.EntityFramework
         {
             using var _context = this.GetService<AppDbContext>();
             await _context.Users.AddAsync(DefaultData.DefaultUserData.DefaultUser, cancellationToken);
-            await _context.PostCategories.AddRangeAsync(DefaultData.DefaultPostCategoryData.DefaultPostCategory, cancellationToken);
 
             await _context.SaveChangesAsync(cancellationToken);
         }

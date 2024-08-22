@@ -8,9 +8,10 @@ namespace Application.Models.ViewModels.Abstractions
 {
     public abstract class NameLocalizableViewModel : AbstractViewModel
     {
-        public string NameUz { get; set; } = string.Empty;
-        public string NameEn { get; set; } = string.Empty;
-        public string NameRu { get; set; } = string.Empty;
-        public string NameUzRu { get; set; } = string.Empty;
+        public string? NameUz { get; set; }
+        public string? NameEn { get; set; }
+        public string? NameRu { get; set; }
+        public string? NameUzRu { get; set; }
+        public string? NameKaa { get; set; }
     }
 }

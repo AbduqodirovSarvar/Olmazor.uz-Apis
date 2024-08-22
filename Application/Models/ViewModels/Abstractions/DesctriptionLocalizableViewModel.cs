@@ -8,9 +8,10 @@ namespace Application.Models.ViewModels.Abstractions
 {
     public abstract class DesctriptionLocalizableViewModel : AbstractViewModel
     {
-        public string DescriptionUz { get; set; } = string.Empty;
-        public string DescriptionEn { get; set; } = string.Empty;
-        public string DescriptionRu { get; set; } = string.Empty;
-        public string DescriptionUzRu { get; set; } = string.Empty;
+        public string? DescriptionUz { get; set; }
+        public string? DescriptionEn { get; set; }
+        public string? DescriptionRu { get; set; }
+        public string? DescriptionUzRu { get; set; }
+        public string? DescriptionKaa { get; set; }
     }
 }

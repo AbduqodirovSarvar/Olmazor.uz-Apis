@@ -9,6 +9,9 @@ namespace Application.Models.ViewModels
     public class EnumViewModel
     {
         public int Id { get; set; }
-        public string Name { get; set; } = null!;
+        public string? NameUz { get; set; }
+        public string? NameEn { get; set; }
+        public string? NameRu { get; set; }
+        public string? NameUzRu { get; set; }
     }
 }

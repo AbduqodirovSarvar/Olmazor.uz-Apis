@@ -10,8 +10,7 @@ namespace Application.Models.ViewModels
 {
     public class PostViewModel : FullLocalizableViewModel
     {
-        public Guid PostCategoryId { get; set; }
-        public PostCategoryViewModel? PostCategory { get; set; }
+        public EnumViewModel? Category { get; set; }
         public string? Photo { get; set; }
     }
 }

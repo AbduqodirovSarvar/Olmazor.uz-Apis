@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,5 +32,6 @@ namespace Application.UseCases.SectorToDoList.Commands
         public Guid EmployeeId { get; set; }
         [Required]
         public Guid LocationId { get; set; }
+        public IFormFile? Photo { get; set; }
     }
 }

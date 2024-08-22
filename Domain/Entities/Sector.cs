@@ -13,5 +13,6 @@ namespace Domain.Entities
         public Employee? Employee { get; set; }
         public Guid LocationId { get; set; }
         public Location? Location { get; set; }
+        public string? Photo { get; set; }
     }
 }

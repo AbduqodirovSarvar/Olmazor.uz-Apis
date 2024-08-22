@@ -14,15 +14,10 @@ namespace Application.Abstractions
         DbSet<About> Abouts { get; set; }
         DbSet<Contact> Contacts { get; set; }
         DbSet<Employee> Employees { get; set; }
-        DbSet<EmployeeCategory> EmployeesCategories { get; set; }
-        DbSet<SubEmployeeCategory> SubEmployeeCategories { get; set; }
-        DbSet<JobFair> JobFairs { get; set; }
         DbSet<Location> Locations { get; set; }
         DbSet<Post> Posts { get; set; }
-        DbSet<PostCategory> PostCategories { get; set; }
         DbSet<Sector> Sectors { get; set; }
         DbSet<Slide> Slides { get; set; }
-        DbSet<TaskOrFunction> TasksAndFunctions { get; set; }
         DbSet<UsefullLink> UsefulLinks { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

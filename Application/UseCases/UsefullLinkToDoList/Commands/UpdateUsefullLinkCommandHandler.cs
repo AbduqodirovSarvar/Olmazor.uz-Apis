@@ -27,6 +27,7 @@ namespace Application.UseCases.UsefullLinkToDoList.Commands
             usefullLink.NameUz = request.NameUz ?? usefullLink.NameUz;
             usefullLink.NameRu = request.NameRu ?? usefullLink.NameRu;
             usefullLink.NameUzRu = request.NameUzRu ?? usefullLink.NameUzRu;
+            usefullLink.NameKaa = request.NameKaa ?? usefullLink.NameKaa;
             usefullLink.Link = request.Link ?? usefullLink.Link;
             usefullLink.Photo = request.Photo != null ? (await _fileService.SaveFileAsync(request.Photo) ?? throw new Exception("Could not save this photo"))
                                                       : usefullLink.Photo;

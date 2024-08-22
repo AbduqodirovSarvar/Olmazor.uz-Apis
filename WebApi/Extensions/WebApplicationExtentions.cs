@@ -1,5 +1,5 @@
 ﻿using Domain.Enums;
-using Infrastructure.Persistance.Models;
+using Infrastructure.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.IdentityModel.Tokens;

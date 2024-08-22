@@ -1,5 +1,5 @@
 ﻿using Application.Abstractions;
-using Infrastructure.Persistance.Models;
+using Infrastructure.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;

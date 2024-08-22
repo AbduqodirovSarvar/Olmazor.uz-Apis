@@ -13,6 +13,7 @@ namespace Application.Services
         {
             if (TranslatedEnums.TryGetValue(category, out var enumViewModel))
             {
+
                 return languageCode switch
                 {
                     "Uz" => enumViewModel.NameUz,

@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240822104455_Initial")]
+    [Migration("20240822124401_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -38,38 +38,36 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("ReceptionTimeEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -120,8 +118,19 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("BirthPlace")
-                        .IsRequired()
+                    b.Property<string>("BirthPlaceEn")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceKaa")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceRu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceUz")
+                        .HasColumnType("text");
+
+                    b.Property<string>("BirthPlaceUzRu")
                         .HasColumnType("text");
 
                     b.Property<DateOnly>("Birthday")
@@ -160,19 +169,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NationalityKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NationalityUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Phone1")
@@ -187,35 +195,33 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PositionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PositionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("PositionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PositionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PositionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ReceptionTimeKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ReceptionTimeUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -228,19 +234,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("WorkPlaceEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("WorkPlaceKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("WorkPlaceRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("WorkPlaceUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("WorkPlaceUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -273,19 +278,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("double precision");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -318,35 +322,33 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
@@ -379,19 +381,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("EmployeeId")
@@ -401,19 +402,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
@@ -450,35 +450,33 @@ namespace Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("DescriptionEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DescriptionKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("DescriptionUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")
@@ -516,19 +514,18 @@ namespace Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NameEn")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NameKaa")
                         .HasColumnType("text");
 
                     b.Property<string>("NameRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUz")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NameUzRu")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Photo")

@@ -9,7 +9,7 @@ namespace Application.Models.ViewModels
 {
     public class ContactViewModel : AbstractViewModel
     {
-        public EnumViewModel Type { get; set; }
+        public EnumViewModel? Type { get; set; }
         public string? Value { get; set; }
     }
 }

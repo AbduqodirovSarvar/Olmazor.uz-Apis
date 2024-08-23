@@ -230,10 +230,10 @@ namespace Application.Services
                     PostCategory.TaskAndFunction, new EnumViewModel
                     {
                         Id = (int)PostCategory.TaskAndFunction,
-                        NameUz = "Vazifa va Funksiyalar",
-                        NameEn = "Task And Function",
+                        NameUz = "Vazifalar va funktsiyalar",
+                        NameEn = "Task and Function",
                         NameRu = "Задачи и функции",
-                        NameUzRu = "Вазифа ва функциялар"
+                        NameUzRu = "Вазифалар ва функциялар"
                     }
                 },
                 {
@@ -250,10 +250,10 @@ namespace Application.Services
                     PostCategory.Acceptance, new EnumViewModel
                     {
                         Id = (int)PostCategory.Acceptance,
-                        NameUz = "Qabul qilish",
+                        NameUz = "Qabul",
                         NameEn = "Acceptance",
-                        NameRu = "Принятие",
-                        NameUzRu = "Қабул қилиш"
+                        NameRu = "Прием",
+                        NameUzRu = "Қабул"
                     }
                 },
                 {
@@ -261,7 +261,7 @@ namespace Application.Services
                     {
                         Id = (int)PostCategory.Comission,
                         NameUz = "Komissiya",
-                        NameEn = "Comission",
+                        NameEn = "Commission",
                         NameRu = "Комиссия",
                         NameUzRu = "Комиссия"
                     }
@@ -290,7 +290,7 @@ namespace Application.Services
                     PostCategory.Announcements, new EnumViewModel
                     {
                         Id = (int)PostCategory.Announcements,
-                        NameUz = "E'lonlar",
+                        NameUz = "E’lonlar",
                         NameEn = "Announcements",
                         NameRu = "Объявления",
                         NameUzRu = "Эълонлар"
@@ -306,7 +306,78 @@ namespace Application.Services
                         NameUzRu = "Лойиҳалар"
                     }
                 },
-                { 
+                {
+                    PostCategory.OAV, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.OAV,
+                        NameUz = "OAV",
+                        NameEn = "Mass Media",
+                        NameRu = "СМИ",
+                        NameUzRu = "ОАВ"
+                    }
+                },
+                {
+                    PostCategory.Photo, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.Photo,
+                        NameUz = "Foto",
+                        NameEn = "Photo",
+                        NameRu = "Фото",
+                        NameUzRu = "Фото"
+                    }
+                },
+                {
+                    PostCategory.Video, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.Video,
+                        NameUz = "Video",
+                        NameEn = "Video",
+                        NameRu = "Видео",
+                        NameUzRu = "Видео"
+                    }
+                },
+                {
+                    PostCategory.Tenders, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.Tenders,
+                        NameUz = "Tenderlar",
+                        NameEn = "Tenders",
+                        NameRu = "Тендеры",
+                        NameUzRu = "Тендерлар"
+                    }
+                },
+                {
+                    PostCategory.Fight_Against_Corruption, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.Fight_Against_Corruption,
+                        NameUz = "Korrupsiyaga qarshi kurash",
+                        NameEn = "Fight Against Corruption",
+                        NameRu = "Борьба с коррупцией",
+                        NameUzRu = "Коррупсияга қарши кураш"
+                    }
+                },
+                {
+                    PostCategory.Investments, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.Investments,
+                        NameUz = "Investitsiyalar",
+                        NameEn = "Investments",
+                        NameRu = "Инвестиции",
+                        NameUzRu = "Инвестициялар"
+                    }
+                },
+                {
+                    PostCategory.Vacancy, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.Vacancy,
+                        NameUz = "Bo‘sh ish o‘rinlari",
+                        NameEn = "Vacancy",
+                        NameRu = "Вакансии",
+                        NameUzRu = "Бўш иш ўринлари"
+                    }
+                },
+                // User Roles
+                {
                     UserRole.None, new EnumViewModel
                     {
                         Id = (int)UserRole.None,
@@ -334,6 +405,78 @@ namespace Application.Services
                         NameEn = "Super Admin",
                         NameRu = "Супер администратор",
                         NameUzRu = "Супер админ"
+                    }
+                },
+                // week days
+
+                {
+                    WeekDays.Sunday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Sunday,
+                        NameUz = "Yakshanba",
+                        NameEn = "Sunday",
+                        NameRu = "Воскресенье",
+                        NameUzRu = "Якшанба"
+                    }
+                },
+                {
+                    WeekDays.Monday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Monday,
+                        NameUz = "Dushanba",
+                        NameEn = "Monday",
+                        NameRu = "Понедельник",
+                        NameUzRu = "Душанба"
+                    }
+                },
+                {
+                    WeekDays.Tuesday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Tuesday,
+                        NameUz = "Seshanba",
+                        NameEn = "Tuesday",
+                        NameRu = "Вторник",
+                        NameUzRu = "Сешанба"
+                    }
+                },
+                {
+                    WeekDays.Wednesday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Wednesday,
+                        NameUz = "Chorshanba",
+                        NameEn = "Wednesday",
+                        NameRu = "Среда",
+                        NameUzRu = "Чоршанба"
+                    }
+                },
+                {
+                    WeekDays.Thursday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Thursday,
+                        NameUz = "Payshanba",
+                        NameEn = "Thursday",
+                        NameRu = "Четверг",
+                        NameUzRu = "Пайшанба"
+                    }
+                },
+                {
+                    WeekDays.Friday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Friday,
+                        NameUz = "Juma",
+                        NameEn = "Friday",
+                        NameRu = "Пятница",
+                        NameUzRu = "Жума"
+                    }
+                },
+                {
+                    WeekDays.Saturday, new EnumViewModel
+                    {
+                        Id = (int)WeekDays.Saturday,
+                        NameUz = "Shanba",
+                        NameEn = "Saturday",
+                        NameRu = "Суббота",
+                        NameUzRu = "Шанба"
                     }
                 }
             };

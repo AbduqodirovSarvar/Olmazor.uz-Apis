@@ -30,7 +30,7 @@ namespace Application.UseCases.EmployeeToDoList.Commands
             await _appDbContext.Employees.AddAsync(employee, cancellationToken);
             await _appDbContext.SaveChangesAsync(cancellationToken);
 
-            return _mapper.Map<EmployeeViewModel>(request);
+            return _mapper.Map<EmployeeViewModel>(employee);
         }
     }
 }

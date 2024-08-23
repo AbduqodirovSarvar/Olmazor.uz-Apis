@@ -1,4 +1,5 @@
 ﻿using Application.UseCases.CommonToDoList.Queries;
+using Application.UseCases.CommonToDoList.Queries.EnumerationQueries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -36,7 +37,6 @@ namespace WebApi.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 return BadRequest(ex);
             }
         }
@@ -51,7 +51,6 @@ namespace WebApi.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 return BadRequest(ex);
             }
         }
@@ -66,7 +65,62 @@ namespace WebApi.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                return BadRequest(ex);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("enum/employee-categories")]
+        public async Task<IActionResult> GetEmployeecategoryEnums()
+        {
+            try
+            {
+                return Ok(await _mediator.Send(new GetEmployeeCategoryEnumsQuery()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("enum/contact-types")]
+        public async Task<IActionResult> GetContactTypeEnums()
+        {
+            try
+            {
+                return Ok(await _mediator.Send(new GetContactTypeEnumsQuery()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("enum/post-categories")]
+        public async Task<IActionResult> GetPostCategoryEnums()
+        {
+            try
+            {
+                return Ok(await _mediator.Send(new GetPostCategoryQuery()));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet("enum/week-days")]
+        public async Task<IActionResult> GetWeekDaysEnums()
+        {
+            try
+            {
+                return Ok(await _mediator.Send(new GetWeekDaysEnumsQuery()));
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex);
             }
         }

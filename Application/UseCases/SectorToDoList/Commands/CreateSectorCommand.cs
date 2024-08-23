@@ -20,6 +20,7 @@ namespace Application.UseCases.SectorToDoList.Commands
         public string NameRu { get; set; } = null!;
         [Required]
         public string NameUzRu { get; set; } = null!;
+        public string? NameKaa { get; set; }
         [Required]
         public string DescriptionUz { get; set; } = null!;
         [Required]
@@ -28,6 +29,7 @@ namespace Application.UseCases.SectorToDoList.Commands
         public string DescriptionRu { get; set; } = null!;
         [Required]
         public string DescriptionUzRu { get; set; } = null!;
+        public string? DescriptionKaa { get; set; }
         [Required]
         public Guid EmployeeId { get; set; }
         [Required]

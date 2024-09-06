@@ -36,7 +36,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                return Ok(await mediator.Send(new GetCurrentUserQuery()));
+                return Ok(await _mediator.Send(new GetCurrentUserQuery()));
             }
             catch (Exception ex)
             {

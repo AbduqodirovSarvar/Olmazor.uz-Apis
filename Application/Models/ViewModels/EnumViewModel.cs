@@ -13,5 +13,6 @@ namespace Application.Models.ViewModels
         public string NameEn { get; set; } = string.Empty;
         public string NameRu { get; set; } = string.Empty;
         public string NameUzRu { get; set; } = string.Empty;
+        public string NameKaa { get; set; } = string.Empty;
     }
 }

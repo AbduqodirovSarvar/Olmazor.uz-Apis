@@ -47,7 +47,8 @@ namespace Application.Services
                .ForMember(dest => dest.NameUz, opt => opt.MapFrom(src => _translator.GetEnumName(src, "Uz")))
                .ForMember(dest => dest.NameEn, opt => opt.MapFrom(src => _translator.GetEnumName(src, "En")))
                .ForMember(dest => dest.NameRu, opt => opt.MapFrom(src => _translator.GetEnumName(src, "Ru")))
-               .ForMember(dest => dest.NameUzRu, opt => opt.MapFrom(src => _translator.GetEnumName(src, "UzRu")));
+               .ForMember(dest => dest.NameUzRu, opt => opt.MapFrom(src => _translator.GetEnumName(src, "UzRu")))
+               .ForMember(dest => dest.NameKaa, opt => opt.MapFrom(src => _translator.GetEnumName(src, "Kaa")));
 
             CreateMap<About, AboutViewModel>().ReverseMap();
             CreateMap<Contact, ContactViewModel>().ReverseMap();

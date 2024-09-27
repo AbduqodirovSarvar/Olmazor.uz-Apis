@@ -23,13 +23,13 @@ namespace Application.UseCases.UsefullLinkToDoList.Commands
             var usefullLink = await _appDbContext.UsefulLinks.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                                              ?? throw new Exception("Usefull link not found");
 
-            usefullLink.NameEn = request.NameEn ?? usefullLink.NameEn;
-            usefullLink.NameUz = request.NameUz ?? usefullLink.NameUz;
-            usefullLink.NameRu = request.NameRu ?? usefullLink.NameRu;
-            usefullLink.NameUzRu = request.NameUzRu ?? usefullLink.NameUzRu;
-            usefullLink.NameKaa = request.NameKaa ?? usefullLink.NameKaa;
-            usefullLink.Link = request.Link ?? usefullLink.Link;
-            usefullLink.Photo = request.Photo != null ? (await _fileService.SaveFileAsync(request.Photo) ?? throw new Exception("Could not save this photo"))
+            usefullLink.NameEn = request?.NameEn ?? usefullLink.NameEn;
+            usefullLink.NameUz = request?.NameUz ?? usefullLink.NameUz;
+            usefullLink.NameRu = request?.NameRu ?? usefullLink.NameRu;
+            usefullLink.NameUzRu = request?.NameUzRu ?? usefullLink.NameUzRu;
+            usefullLink.NameKaa = request?.NameKaa ?? usefullLink.NameKaa;
+            usefullLink.Link = request?.Link ?? usefullLink.Link;
+            usefullLink.Photo = request?.Photo != null ? (await _fileService.SaveFileAsync(request.Photo) ?? throw new Exception("Could not save this photo"))
                                                       : usefullLink.Photo;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);

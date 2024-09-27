@@ -21,8 +21,8 @@ namespace Application.UseCases.ContactToDoList.Commands
             var contact = await _appDbContext.Contacts.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                           ?? throw new Exception("Contact not found");
 
-            contact.Type = request.Type ?? contact.Type;
-            contact.Value = request.Value ?? contact.Value;
+            contact.Type = request?.Type ?? contact.Type;
+            contact.Value = request?.Value ?? contact.Value;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return contact;

@@ -23,18 +23,20 @@ namespace Application.UseCases.SlideToDoList.Commands
             var slide = await _appDbContext.Slides.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                                   ?? throw new Exception("Slide not found");
 
-            slide.NameEn = request.NameEn ?? slide.NameEn;
-            slide.NameRu = request.NameRu ?? slide.NameRu;
-            slide.NameUz = request.NameUz ?? slide.NameUz;
-            slide.NameUzRu = request.NameUzRu ?? slide.NameUzRu;
-            slide.NameKaa = request.NameKaa ?? slide.NameKaa;
-            slide.DescriptionEn = request.DescriptionEn ?? slide.DescriptionEn;
-            slide.DescriptionRu = request.DescriptionRu ?? slide.DescriptionRu;
-            slide.DescriptionUz = request.DescriptionUz ?? slide.DescriptionUz;
-            slide.DescriptionUzRu = request.DescriptionUzRu ?? slide.DescriptionUzRu;
-            slide.DescriptionKaa = request.DescriptionKaa ?? slide.DescriptionKaa;
-            slide.Photo = request.Photo != null ? (await _fileService.SaveFileAsync(request.Photo) ?? throw new Exception("Could not save this photo")) 
-                                                : slide.Photo;
+            slide.NameEn = request?.NameEn ?? slide.NameEn;
+            slide.NameRu = request?.NameRu ?? slide.NameRu;
+            slide.NameUz = request?.NameUz ?? slide.NameUz;
+            slide.NameUzRu = request?.NameUzRu ?? slide.NameUzRu;
+            slide.NameKaa = request?.NameKaa ?? slide.NameKaa;
+            slide.DescriptionEn = request?.DescriptionEn ?? slide.DescriptionEn;
+            slide.DescriptionRu = request?.DescriptionRu ?? slide.DescriptionRu;
+            slide.DescriptionUz = request?.DescriptionUz ?? slide.DescriptionUz;
+            slide.DescriptionUzRu = request?.DescriptionUzRu ?? slide.DescriptionUzRu;
+            slide.DescriptionKaa = request?.DescriptionKaa ?? slide.DescriptionKaa;
+            if(request?.Photo != null)
+            {
+                slide.Photo = await _fileService.SaveFileAsync(request.Photo) ?? slide.Photo;
+            }
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return slide;

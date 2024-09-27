@@ -23,20 +23,23 @@ namespace Application.UseCases.PostToDoList.Commands
             var post = await _appDbContext.Posts.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                                 ?? throw new Exception("Post not found");
 
-            post.NameRu = request.NameRu ?? post.NameRu;
-            post.NameEn = request.NameEn ?? post.NameEn;
-            post.NameUz = request.NameUz ?? post.NameUz;
-            post.NameUzRu = request.NameUzRu ?? post.NameUzRu;
-            post.NameKaa = request.NameKaa ?? post.NameKaa;
+            post.NameRu = request?.NameRu ?? post.NameRu;
+            post.NameEn = request?.NameEn ?? post.NameEn;
+            post.NameUz = request?.NameUz ?? post.NameUz;
+            post.NameUzRu = request?.NameUzRu ?? post.NameUzRu;
+            post.NameKaa = request?.NameKaa ?? post.NameKaa;
 
-            post.DescriptionEn = request.DescriptionEn ?? post.DescriptionEn;
-            post.DescriptionRu = request.DescriptionRu ?? post.DescriptionRu;
-            post.DescriptionUz = request.DescriptionUz ?? post.DescriptionUz;
-            post.DescriptionUzRu = request.DescriptionUzRu ?? post.DescriptionUzRu;
-            post.DescriptionKaa = request.DescriptionKaa ?? post.DescriptionKaa;
+            post.DescriptionEn = request?.DescriptionEn ?? post.DescriptionEn;
+            post.DescriptionRu = request?.DescriptionRu ?? post.DescriptionRu;
+            post.DescriptionUz = request?.DescriptionUz ?? post.DescriptionUz;
+            post.DescriptionUzRu = request?.DescriptionUzRu ?? post.DescriptionUzRu;
+            post.DescriptionKaa = request?.DescriptionKaa ?? post.DescriptionKaa;
 
-            post.Category = request.Category ?? post.Category;
-            post.Photo = await _fileService.SaveFileAsync(request.Photo);
+            post.Category = request?.Category ?? post.Category;
+            if(request?.Photo != null)
+            {
+                post.Photo = await _fileService.SaveFileAsync(request.Photo);
+            }
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return post;

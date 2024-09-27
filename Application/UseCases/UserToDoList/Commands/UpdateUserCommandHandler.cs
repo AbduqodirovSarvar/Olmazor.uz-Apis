@@ -35,12 +35,12 @@ namespace Application.UseCases.UserToDoList.Commands
             var user = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                           ?? throw new Exception("User not found");
 
-            if ((currentUser.Userrole == UserRole.SuperAdmin || currentUser.Userrole == UserRole.Admin) && currentUser.Id != user.Id && request.Password != null)
+            if ((currentUser.Userrole == UserRole.SuperAdmin || currentUser.Userrole == UserRole.Admin) && currentUser.Id != user.Id && request?.Password != null)
             {
                 user.PasswordHash = _hashService.GetHash(request.Password);
             }
 
-            if (currentUser.Id == user.Id && !(currentUser.Userrole == UserRole.SuperAdmin || currentUser.Userrole == UserRole.Admin) && request.Password != null)
+            if (currentUser.Id == user.Id && !(currentUser.Userrole == UserRole.SuperAdmin || currentUser.Userrole == UserRole.Admin) && request?.Password != null)
             {
                 if (request.OldPassword == null)
                 {
@@ -54,12 +54,12 @@ namespace Application.UseCases.UserToDoList.Commands
                 user.PasswordHash = _hashService.GetHash(request.Password);
             }
 
-            if(request.Userrole != null && (request.Userrole == UserRole.SuperAdmin || request.Userrole == UserRole.Admin) && currentUser.Userrole != UserRole.SuperAdmin)
+            if(request?.Userrole != null && (request?.Userrole == UserRole.SuperAdmin || request?.Userrole == UserRole.Admin) && currentUser.Userrole != UserRole.SuperAdmin)
             {
                 throw new Exception("Access denied");
             }
 
-            if (request.Photo != null)
+            if (request?.Photo != null)
             {
                 var photoFileName = await _fileService.SaveFileAsync(request.Photo)
                                                       ?? throw new Exception("Cannot save the photo");
@@ -67,15 +67,15 @@ namespace Application.UseCases.UserToDoList.Commands
                 user.Photo = photoFileName;
             }
 
-            user.FirstnameEn = request.FirstnameEn ?? user.FirstnameEn;
-            user.LastnameEn = request.LastnameEn ?? user.LastnameEn;
-            user.FirstnameRu = request.FirstnameRu ?? user.FirstnameRu;
-            user.LastnameRu = request.LastnameRu ?? user.LastnameRu;
-            user.Email = request.Email ?? user.Email;
-            user.Phone1 = request.Phone1 ?? user.Phone1;
-            user.Phone2 = request.Phone2 ?? user.Phone2;
-            user.Gender = request.Gender ?? user.Gender;
-            user.Userrole = request.Userrole ?? user.Userrole;
+            user.FirstnameEn = request?.FirstnameEn ?? user.FirstnameEn;
+            user.LastnameEn = request?.LastnameEn ?? user.LastnameEn;
+            user.FirstnameRu = request?.FirstnameRu ?? user.FirstnameRu;
+            user.LastnameRu = request?.LastnameRu ?? user.LastnameRu;
+            user.Email = request?.Email ?? user.Email;
+            user.Phone1 = request?.Phone1 ?? user.Phone1;
+            user.Phone2 = request?.Phone2 ?? user.Phone2;
+            user.Gender = request?.Gender ?? user.Gender;
+            user.Userrole = request?.Userrole ?? user.Userrole;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
 

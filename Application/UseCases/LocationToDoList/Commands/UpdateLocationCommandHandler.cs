@@ -21,14 +21,14 @@ namespace Application.UseCases.LocationToDoList.Commands
             var location = await _appDbContext.Locations.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                                         ?? throw new Exception("Location not found");
 
-            location.NameEn = request.NameEn ?? location.NameEn;
-            location.NameRu = request.NameRu ?? location.NameRu;
-            location.NameUz = request.NameUz ?? location.NameUz;
-            location.NameUzRu = request.NameUzRu ?? location.NameUzRu;
-            location.NameKaa = request.NameKaa ?? location.NameKaa;
+            location.NameEn = request?.NameEn ?? location.NameEn;
+            location.NameRu = request?.NameRu ?? location.NameRu;
+            location.NameUz = request?.NameUz ?? location.NameUz;
+            location.NameUzRu = request?.NameUzRu ?? location.NameUzRu;
+            location.NameKaa = request?.NameKaa ?? location.NameKaa;
 
-            location.Latitude = request.Latitude ?? location.Latitude;
-            location.Longitude = request.Longitude ?? location.Longitude;
+            location.Latitude = request?.Latitude ?? location.Latitude;
+            location.Longitude = request?.Longitude ?? location.Longitude;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return location;

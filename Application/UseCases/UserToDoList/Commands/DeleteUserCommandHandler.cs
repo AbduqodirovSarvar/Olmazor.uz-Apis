@@ -22,9 +22,18 @@ namespace Application.UseCases.UserToDoList.Commands
             var currentUser = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == _currentUserService.Id, cancellationToken)
                                                  ?? throw new Exception("Current User not found");
 
-            if(!(currentUser.Userrole == Domain.Enums.UserRole.Admin || currentUser.Userrole == Domain.Enums.UserRole.SuperAdmin) || request.Id != currentUser.Id)
+            var deletingUser = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
+                                                 ?? throw new Exception("user not found");
+
+            if ((deletingUser.Userrole == Domain.Enums.UserRole.Admin || deletingUser.Userrole == Domain.Enums.UserRole.SuperAdmin)
+                && currentUser.Userrole != Domain.Enums.UserRole.SuperAdmin)
             {
-                throw new Exception("Access denied");
+                throw new Exception("Access denied: Only SuperAdmin can delete Admin or SuperAdmin users.");
+            }
+            else if (deletingUser.Userrole == Domain.Enums.UserRole.None
+                && (currentUser.Userrole != Domain.Enums.UserRole.SuperAdmin && currentUser.Userrole != Domain.Enums.UserRole.Admin))
+            {
+                throw new Exception("Access denied: Only Admin or SuperAdmin can delete users with role 'None'.");
             }
 
             var user = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)

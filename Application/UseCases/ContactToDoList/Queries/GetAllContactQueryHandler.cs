@@ -1,4 +1,6 @@
 ﻿using Application.Abstractions;
+using Application.Models.ViewModels;
+using AutoMapper;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -11,15 +13,17 @@ using System.Threading.Tasks;
 namespace Application.UseCases.ContactToDoList.Queries
 {
     public class GetAllContactQueryHandler(
-        IAppDbContext appDbContext
-        ) : IRequestHandler<GetAllContactQuery, List<Contact>>
+        IAppDbContext appDbContext,
+        IMapper mapper
+        ) : IRequestHandler<GetAllContactQuery, List<ContactViewModel>>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
+        private readonly IMapper _mapper = mapper;
 
-        public async Task<List<Contact>> Handle(GetAllContactQuery request, CancellationToken cancellationToken)
+        public async Task<List<ContactViewModel>> Handle(GetAllContactQuery request, CancellationToken cancellationToken)
         {
             var contacts = await _appDbContext.Contacts.ToListAsync(cancellationToken);
-            return contacts;
+            return _mapper.Map<List<ContactViewModel>>(contacts);
         }
     }
 }

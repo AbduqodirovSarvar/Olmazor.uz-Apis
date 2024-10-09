@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Models.ViewModels;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.ContactToDoList.Queries
 {
-    public class GetAllContactQuery : IRequest<List<Contact>>
+    public class GetAllContactQuery : IRequest<List<ContactViewModel>>
     {
         public GetAllContactQuery() { }
     }

@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Models.ViewModels;
+using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.UseCases.ContactToDoList.Commands
 {
-    public class UpdateContactCommand : IRequest<Contact>
+    public class UpdateContactCommand : IRequest<ContactViewModel>
     {
         [Required]
         public Guid Id { get; set; }

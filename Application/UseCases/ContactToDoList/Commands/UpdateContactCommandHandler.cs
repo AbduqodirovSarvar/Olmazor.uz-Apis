@@ -1,4 +1,6 @@
 ﻿using Application.Abstractions;
+using Application.Models.ViewModels;
+using AutoMapper;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -11,12 +13,14 @@ using System.Threading.Tasks;
 namespace Application.UseCases.ContactToDoList.Commands
 {
     public class UpdateContactCommandHandler(
-        IAppDbContext appDbContext
-        ) : IRequestHandler<UpdateContactCommand, Contact>
+        IAppDbContext appDbContext,
+        IMapper mapper
+        ) : IRequestHandler<UpdateContactCommand, ContactViewModel>
     {
         private readonly IAppDbContext _appDbContext = appDbContext;
+        private readonly IMapper _mapper = mapper;
 
-        public async Task<Contact> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
+        public async Task<ContactViewModel> Handle(UpdateContactCommand request, CancellationToken cancellationToken)
         {
             var contact = await _appDbContext.Contacts.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                           ?? throw new Exception("Contact not found");
@@ -25,7 +29,7 @@ namespace Application.UseCases.ContactToDoList.Commands
             contact.Value = request?.Value ?? contact.Value;
 
             await _appDbContext.SaveChangesAsync(cancellationToken);
-            return contact;
+            return _mapper.Map<ContactViewModel>(contact);
         }
     }
 }

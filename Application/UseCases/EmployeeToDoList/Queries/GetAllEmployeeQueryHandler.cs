@@ -1,6 +1,7 @@
 ﻿using Application.Abstractions;
 using Application.Models.ViewModels;
 using AutoMapper;
+using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,7 +22,15 @@ namespace Application.UseCases.EmployeeToDoList.Queries
 
         public async Task<List<EmployeeViewModel>> Handle(GetAllEmployeeQuery request, CancellationToken cancellationToken)
         {
-            var employees = await _appDbContext.Employees.ToListAsync(cancellationToken);
+            var employees = new List<Employee>();
+            if (request?.Type != null)
+            {
+                employees = await _appDbContext.Employees.Where(x => x.Category == request.Type).ToListAsync(cancellationToken);
+            }
+            else
+            {
+                employees = await _appDbContext.Employees.ToListAsync(cancellationToken);
+            }
             return _mapper.Map<List<EmployeeViewModel>>(employees);
         }
     }

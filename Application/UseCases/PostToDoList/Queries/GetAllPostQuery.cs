@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,7 @@ namespace Application.UseCases.PostToDoList.Queries
     public class GetAllPostQuery : IRequest<List<Post>>
     {
         public GetAllPostQuery() { }
+
+        public PostCategory? Type { get; set; } = null;
     }
 }

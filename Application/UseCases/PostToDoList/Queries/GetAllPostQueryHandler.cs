@@ -18,7 +18,15 @@ namespace Application.UseCases.PostToDoList.Queries
 
         public async Task<List<Post>> Handle(GetAllPostQuery request, CancellationToken cancellationToken)
         {
-            var posts = await _appDbContext.Posts.ToListAsync(cancellationToken);
+            var posts = new List<Post>();
+            if (request?.Type != null)
+            {
+                posts = await _appDbContext.Posts.Where(x => x.Category == request.Type).ToListAsync(cancellationToken);
+            }
+            else
+            {
+                posts = await _appDbContext.Posts.ToListAsync(cancellationToken);
+            }
             return posts;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Application.Models.ViewModels;
+using Domain.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace Application.UseCases.EmployeeToDoList.Queries
     public class GetAllEmployeeQuery : IRequest<List<EmployeeViewModel>>
     {
         public GetAllEmployeeQuery() { }
+        public EmployeeCategory? Type { get; set; } = null;
     }
 }

@@ -13,7 +13,7 @@ namespace Infrastructure.Persistance.Configurations.Abstractions
         public override void Configure(EntityTypeBuilder<TEntity> builder)
         {
             base.Configure(builder);
-            builder.HasIndex(x => new { x.Phone1, x.Phone2 }).IsUnique();
+            //builder.HasIndex(x => new { x.Phone1, x.Phone2 }).IsUnique();
             builder.HasIndex(x => x.Email).IsUnique();
         }
     }

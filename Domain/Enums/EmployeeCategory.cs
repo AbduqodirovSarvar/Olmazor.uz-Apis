@@ -12,6 +12,7 @@ namespace Domain.Enums
         Assistant = 2,
         Women_Activist = 3,
         Youth_Leader = 4,
-        Council_deputy = 5
+        Council_deputy = 5,
+        SocialProtectionAgency = 6,
     }
 }

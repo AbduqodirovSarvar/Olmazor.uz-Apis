@@ -96,6 +96,17 @@ namespace Application.Services
                         NameKaa = "Kenes deputatları"
                     }
                 },
+                {
+                    EmployeeCategory.SocialProtectionAgency, new EnumViewModel
+                    {
+                        Id = (int)EmployeeCategory.SocialProtectionAgency,
+                        NameUz = "Ижтимоий ҳимоя миллий агентлиги",
+                        NameEn = "National Agency for Social Protection",
+                        NameRu = "Национальное агентство социальной защиты",
+                        NameUzRu = "Ижтимоий ҳимоя миллий агентлиги",
+                        NameKaa = "Ijtimoy himoya milliy agentligi"
+                    }
+                },
 
                 // ContactType
                 {

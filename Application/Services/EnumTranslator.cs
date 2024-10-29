@@ -107,6 +107,17 @@ namespace Application.Services
                         NameKaa = "Ijtimoy himoya milliy agentligi"
                     }
                 },
+                {
+                    EmployeeCategory.NeighborhoodChairPersons, new EnumViewModel
+                    {
+                        Id = (int)EmployeeCategory.NeighborhoodChairPersons,
+                        NameUz = "Mahalla raislari",
+                        NameEn = "Neighborhood Chairpersons",
+                        NameRu = "Председатели махаллей",
+                        NameUzRu = "Маҳалла раислари",
+                        NameKaa = "Mahalle raisleri"
+                    }
+                },
 
                 // ContactType
                 {

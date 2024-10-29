@@ -14,5 +14,6 @@ namespace Domain.Enums
         Youth_Leader = 4,
         Council_deputy = 5,
         SocialProtectionAgency = 6,
+        NeighborhoodChairPersons = 7
     }
 }

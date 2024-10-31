@@ -23,5 +23,6 @@ namespace Domain.Enums
         Fight_Against_Corruption = 13,
         Investments = 14,
         Vacancy = 15,
+        OpenBudget = 16,
     }
 }

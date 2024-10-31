@@ -432,6 +432,17 @@ namespace Application.Services
                         NameKaa = "Jumıs orınları"
                     }
                 },
+                {
+                    PostCategory.OpenBudget, new EnumViewModel
+                    {
+                        Id = (int)PostCategory.OpenBudget,
+                        NameUz = "Ochiq budget",
+                        NameEn = "Open Budget",
+                        NameRu = "Открытый бюджет",
+                        NameUzRu = "Очиқ бюджет",
+                        NameKaa = "Очиқ бюджет"
+                    }
+                },
 
                 // week days
 

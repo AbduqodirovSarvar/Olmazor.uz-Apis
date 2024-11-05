@@ -43,7 +43,7 @@ namespace Application.UseCases.CommonToDoList.Queries
                                         .OrderByDescending(x => x.CreatedAt)
                                         .ToListAsync(cancellationToken);
             var employees = await _appDbContext.Employees
-                                        .OrderByDescending(x => x.CreatedAt)
+                                        .OrderBy(x => x.CreatedAt)
                                         .ToListAsync(cancellationToken);
 
             return new CommonViewModel()

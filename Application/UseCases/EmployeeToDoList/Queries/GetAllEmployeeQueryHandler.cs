@@ -25,13 +25,13 @@ namespace Application.UseCases.EmployeeToDoList.Queries
             var employees = new List<Employee>();
             if (request?.Type != null)
             {
-                employees = await _appDbContext.Employees.Where(x => x.Category == request.Type).ToListAsync(cancellationToken);
+                employees = await _appDbContext.Employees.OrderBy(x => x.CreatedAt).Where(x => x.Category == request.Type).ToListAsync(cancellationToken);
             }
             else
             {
-                employees = await _appDbContext.Employees.ToListAsync(cancellationToken);
+                employees = await _appDbContext.Employees.OrderBy(x => x.CreatedAt).ToListAsync(cancellationToken);
             }
-            return _mapper.Map<List<EmployeeViewModel>>(employees.OrderBy(x => x.CreatedAt));
+            return _mapper.Map<List<EmployeeViewModel>>(employees);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Application.UseCases.EmployeeToDoList.Queries
             {
                 employees = await _appDbContext.Employees.ToListAsync(cancellationToken);
             }
-            return _mapper.Map<List<EmployeeViewModel>>(employees);
+            return _mapper.Map<List<EmployeeViewModel>>(employees.OrderBy(x => x.CreatedAt));
         }
     }
 }

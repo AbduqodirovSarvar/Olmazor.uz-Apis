@@ -14,5 +14,6 @@ namespace Application.Models.ViewModels
         public EmployeeViewModel? Employee { get; set; }
         public Guid LocationId { get; set; }
         public LocationViewModel? Location { get; set; }
+        public string? Photo { get; set; }
     }
 }

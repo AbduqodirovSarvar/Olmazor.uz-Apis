@@ -118,6 +118,18 @@ namespace Application.Services
                         NameKaa = "Mahalle raisleri"
                     }
                 },
+                {
+                    EmployeeCategory.SectorsLeadership, new EnumViewModel
+                    {
+                        Id = (int)EmployeeCategory.SectorsLeadership,
+                        NameUz = "Sektor rahbarlari",
+                        NameEn = "Sectors Leadership",
+                        NameRu = "Руководители секторов",
+                        NameUzRu = "Сектор раҳбарлари",
+                        NameKaa = "Sektor rahbarlari"
+                    }
+                },
+
 
                 // ContactType
                 {

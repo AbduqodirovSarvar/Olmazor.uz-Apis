@@ -100,11 +100,11 @@ namespace Application.Services
                     EmployeeCategory.SocialProtectionAgency, new EnumViewModel
                     {
                         Id = (int)EmployeeCategory.SocialProtectionAgency,
-                        NameUz = "Ижтимоий ҳимоя миллий агентлиги",
+                        NameUz = "Ijtimoiy himoya milliy agentligi",
                         NameEn = "National Agency for Social Protection",
                         NameRu = "Национальное агентство социальной защиты",
                         NameUzRu = "Ижтимоий ҳимоя миллий агентлиги",
-                        NameKaa = "Ijtimoy himoya milliy agentligi"
+                        NameKaa = "Áleumettik qorǵaw ulıttıq agentligi"
                     }
                 },
                 {

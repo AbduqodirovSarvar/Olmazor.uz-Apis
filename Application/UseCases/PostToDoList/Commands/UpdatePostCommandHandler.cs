@@ -53,7 +53,7 @@ namespace Application.UseCases.PostToDoList.Commands
                     var imgName = await _fileService.SaveFileAsync(item);
                     return new Image
                     {
-                        Name = imgName,
+                        Name = imgName ?? string.Empty,
                         ImageUrl = $"https://api.olmazor.uz/api/File/{imgName}",
                         PostId = post.Id
                     };

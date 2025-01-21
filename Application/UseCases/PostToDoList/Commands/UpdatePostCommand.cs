@@ -30,5 +30,7 @@ namespace Application.UseCases.PostToDoList.Commands
 
         public PostCategory? Category { get; set; } = null;
         public IFormFile? Photo { get; set; } = null;
+        public ICollection<string> DeletingImages { get; set; } = [];
+        public ICollection<IFormFile> Images { get; set; } = [];
     }
 }

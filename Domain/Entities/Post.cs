@@ -12,5 +12,6 @@ namespace Domain.Entities
     {
         public PostCategory Category { get; set; }
         public string? Photo { get; set; }
+        public ICollection<Image> Images { get; set; } = [];
     }
 }

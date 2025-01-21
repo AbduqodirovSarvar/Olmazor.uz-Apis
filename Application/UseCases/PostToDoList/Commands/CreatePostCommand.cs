@@ -26,5 +26,6 @@ namespace Application.UseCases.PostToDoList.Commands
 
         public PostCategory Category { get; set; }
         public IFormFile? Photo { get; set; }
+        public ICollection<IFormFile> Images { get; set; } = [];
     }
 }

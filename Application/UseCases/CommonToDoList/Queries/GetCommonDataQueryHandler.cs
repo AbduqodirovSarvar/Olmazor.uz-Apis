@@ -30,7 +30,8 @@ namespace Application.UseCases.CommonToDoList.Queries
                                         .ToListAsync(cancellationToken);
             var about = await _appDbContext.Abouts
                                          .Include(x => x.Location)
-                                         .OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync(cancellationToken);
+                                         .OrderByDescending(x => x.CreatedAt)
+                                         .FirstOrDefaultAsync(cancellationToken);
             var sectors = await _appDbContext.Sectors
                                          .Include(x => x.Location)
                                          .Include(x => x.Employee)
@@ -40,6 +41,7 @@ namespace Application.UseCases.CommonToDoList.Queries
                                         .OrderByDescending(x => x.CreatedAt)
                                         .ToListAsync(cancellationToken);
             var posts = await _appDbContext.Posts
+                                        .Include(x => x.Images)
                                         .OrderByDescending(x => x.CreatedAt)
                                         .ToListAsync(cancellationToken);
             var employees = await _appDbContext.Employees

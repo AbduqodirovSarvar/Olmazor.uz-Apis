@@ -12,5 +12,6 @@ namespace Application.Models.ViewModels
     {
         public EnumViewModel? Category { get; set; }
         public string? Photo { get; set; }
+        public ICollection<Image>? Images { get; set; }
     }
 }

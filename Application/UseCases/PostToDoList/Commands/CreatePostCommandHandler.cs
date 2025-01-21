@@ -25,6 +25,21 @@ namespace Application.UseCases.PostToDoList.Commands
             var post = _mapper.Map<Post>(request);
             post.Photo = await _fileService.SaveFileAsync(request.Photo);
 
+            var imageTasks = request.Images.Select(async item =>
+            {
+                var imgName = await _fileService.SaveFileAsync(item);
+                return new Image
+                {
+                    Name = imgName,
+                    ImageUrl = $"https://api.olmazor.uz/api/File/{imgName}",
+                    PostId = post.Id
+                };
+            });
+
+            var images = (await Task.WhenAll(imageTasks)).ToList();
+
+            post.Images = images;
+
             await _appDbContext.Posts.AddAsync(post, cancellationToken);
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return post;

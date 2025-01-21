@@ -32,7 +32,8 @@ namespace Application.Services
             CreateMap<CreateAboutCommand, About>().ReverseMap();
             CreateMap<CreateLocationCommand, Location>().ReverseMap();
             CreateMap<CreatePostCommand, Post>()
-                .ForMember(x => x.Photo, y => y.Ignore());
+                .ForMember(x => x.Photo, y => y.Ignore())
+                .ForMember(x => x.Images, y => y.Ignore());
             CreateMap<CreateSectorCommand, Sector>().ReverseMap();
             CreateMap<CreateSlideCommand, Slide>()
                 .ForMember(x => x.Photo, y => y.Ignore());

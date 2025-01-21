@@ -20,7 +20,7 @@ namespace Application.UseCases.PostToDoList.Commands
 
         public async Task<Post> Handle(UpdatePostCommand request, CancellationToken cancellationToken)
         {
-            var post = await _appDbContext.Posts.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
+            var post = await _appDbContext.Posts.Include(x =>x .Images).FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken)
                                                 ?? throw new Exception("Post not found");
 
             post.NameRu = request?.NameRu ?? post.NameRu;
@@ -39,6 +39,28 @@ namespace Application.UseCases.PostToDoList.Commands
             if(request?.Photo != null)
             {
                 post.Photo = await _fileService.SaveFileAsync(request.Photo);
+            }
+
+            if(request != null && request.DeletingImages.Count > 0)
+            {
+                post.Images = post.Images.Where(x => !request.DeletingImages.Contains(x.Name)).ToList();
+            }
+
+            if(request != null && request.Images.Count > 0)
+            {
+                var imageTasks = request.Images.Select(async item =>
+                {
+                    var imgName = await _fileService.SaveFileAsync(item);
+                    return new Image
+                    {
+                        Name = imgName,
+                        ImageUrl = $"https://api.olmazor.uz/api/File/{imgName}",
+                        PostId = post.Id
+                    };
+                });
+                var images = (await Task.WhenAll(imageTasks)).ToList();
+
+                post.Images.ToList().AddRange(images);
             }
 
             await _appDbContext.SaveChangesAsync(cancellationToken);

@@ -51,7 +51,7 @@ namespace Application.UseCases.PostToDoList.Commands
                 var imageTasks = request.Images.Select(async item =>
                 {
                     var imgName = await _fileService.SaveFileAsync(item);
-                    return new Image
+                    return new Domain.Entities.Image
                     {
                         Name = imgName ?? string.Empty,
                         ImageUrl = $"https://api.olmazor.uz/api/File/{imgName}",
@@ -61,8 +61,8 @@ namespace Application.UseCases.PostToDoList.Commands
                 var images = (await Task.WhenAll(imageTasks)).ToList();
 
                 post.Images.ToList().AddRange(images);
+                _appDbContext.Images.AddRange(images);
             }
-
             await _appDbContext.SaveChangesAsync(cancellationToken);
             return post;
         }

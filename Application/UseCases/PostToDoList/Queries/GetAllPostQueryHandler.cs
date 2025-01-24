@@ -21,11 +21,11 @@ namespace Application.UseCases.PostToDoList.Queries
             var posts = new List<Post>();
             if (request?.Type != null)
             {
-                posts = await _appDbContext.Posts.OrderByDescending(x => x.CreatedAt).Where(x => x.Category == request.Type).ToListAsync(cancellationToken);
+                posts = await _appDbContext.Posts.Include(x => x.Images).OrderByDescending(x => x.CreatedAt).Where(x => x.Category == request.Type).ToListAsync(cancellationToken);
             }
             else
             {
-                posts = await _appDbContext.Posts.OrderByDescending(x => x.CreatedAt).ToListAsync(cancellationToken);
+                posts = await _appDbContext.Posts.Include(x => x.Images).OrderByDescending(x => x.CreatedAt).ToListAsync(cancellationToken);
             }
             return posts;
         }
